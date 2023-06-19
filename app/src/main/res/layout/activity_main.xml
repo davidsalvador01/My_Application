@@ -4,28 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="pulsar"
+    android:background="#FFFCFC"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/labelArtistName"
+        android:layout_width="124dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="60dp"
+        android:text="Name of the Artist"
+        app:layout_constraintBottom_toTopOf="@+id/button_siguiente"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/labelTrackName"
+        android:layout_width="124dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="24dp"
+        android:text="Name of the Song"
+        app:layout_constraintBottom_toTopOf="@+id/labelArtistName"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="41dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/button_anterior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        tools:srcCompat="@android:drawable/ic_menu_mapmode" />
+
+    <Button
+        android:id="@+id/button_reproducir"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/pausa"
+        android:onClick="button_reproducir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_siguiente"
+        app:layout_constraintStart_toEndOf="@+id/button_anterior"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_anterior"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/anterior"
+        android:onClick="button_ant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_siguiente"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/siguiente"
+        android:onClick="button_sig"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_bpm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="19dp"
+        android:onClick="bpm_aleat"
+        android:text="Bpm Aleatorio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:onClick="pulsar"
-        android:text="Button"
+    <TextView
+        android:id="@+id/textViewBpm"
+        android:layout_width="214dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="46dp"
+        android:text="Bpms actuales: "
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_bpm"
+        app:srcCompat="@drawable/heart_rate_icon" />
+
+    <Button
+        android:id="@+id/filter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:drawable/ic_menu_sort_by_size"
+        android:backgroundTint="@color/teal_200"
+        android:onClick="filterSongs"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

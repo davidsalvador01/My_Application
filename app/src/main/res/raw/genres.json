@@ -1,0 +1,4242 @@
+[
+  {
+    "Id": 1,
+    "Name": "r&b"
+  },
+  {
+    "Id": 2,
+    "Name": "soul"
+  },
+  {
+    "Id": 3,
+    "Name": "glam metal"
+  },
+  {
+    "Id": 4,
+    "Name": "hard rock"
+  },
+  {
+    "Id": 5,
+    "Name": "rock"
+  },
+  {
+    "Id": 6,
+    "Name": "album rock"
+  },
+  {
+    "Id": 7,
+    "Name": "soft rock"
+  },
+  {
+    "Id": 8,
+    "Name": "classic rock"
+  },
+  {
+    "Id": 9,
+    "Name": "glam rock"
+  },
+  {
+    "Id": 10,
+    "Name": "east coast hip hop"
+  },
+  {
+    "Id": 11,
+    "Name": "golden age hip hop"
+  },
+  {
+    "Id": 12,
+    "Name": "hip hop"
+  },
+  {
+    "Id": 13,
+    "Name": "old school hip hop"
+  },
+  {
+    "Id": 14,
+    "Name": "queens hip hop"
+  },
+  {
+    "Id": 15,
+    "Name": "rap"
+  },
+  {
+    "Id": 16,
+    "Name": "celtic rock"
+  },
+  {
+    "Id": 17,
+    "Name": "scottish rock"
+  },
+  {
+    "Id": 18,
+    "Name": "canadian pop"
+  },
+  {
+    "Id": 19,
+    "Name": "canadian singer-songwriter"
+  },
+  {
+    "Id": 20,
+    "Name": "classic canadian rock"
+  },
+  {
+    "Id": 21,
+    "Name": "heartland rock"
+  },
+  {
+    "Id": 22,
+    "Name": "mellow gold"
+  },
+  {
+    "Id": 23,
+    "Name": "disco"
+  },
+  {
+    "Id": 24,
+    "Name": "funk"
+  },
+  {
+    "Id": 25,
+    "Name": "jazz funk"
+  },
+  {
+    "Id": 26,
+    "Name": "dance rock"
+  },
+  {
+    "Id": 27,
+    "Name": "new romantic"
+  },
+  {
+    "Id": 28,
+    "Name": "new wave"
+  },
+  {
+    "Id": 29,
+    "Name": "new wave pop"
+  },
+  {
+    "Id": 30,
+    "Name": "singer-songwriter"
+  },
+  {
+    "Id": 31,
+    "Name": "sophisti-pop"
+  },
+  {
+    "Id": 32,
+    "Name": "synthpop"
+  },
+  {
+    "Id": 33,
+    "Name": "rock keyboard"
+  },
+  {
+    "Id": 34,
+    "Name": "yacht rock"
+  },
+  {
+    "Id": 35,
+    "Name": "permanent wave"
+  },
+  {
+    "Id": 36,
+    "Name": "motown"
+  },
+  {
+    "Id": 37,
+    "Name": "quiet storm"
+  },
+  {
+    "Id": 38,
+    "Name": "synth funk"
+  },
+  {
+    "Id": 39,
+    "Name": "hi-nrg"
+  },
+  {
+    "Id": 40,
+    "Name": "piano rock"
+  },
+  {
+    "Id": 41,
+    "Name": "hip house"
+  },
+  {
+    "Id": 42,
+    "Name": "miami bass"
+  },
+  {
+    "Id": 43,
+    "Name": "freestyle"
+  },
+  {
+    "Id": 44,
+    "Name": "harlem hip hop"
+  },
+  {
+    "Id": 45,
+    "Name": "new jack swing"
+  },
+  {
+    "Id": 46,
+    "Name": "australian rock"
+  },
+  {
+    "Id": 47,
+    "Name": "dance pop"
+  },
+  {
+    "Id": 48,
+    "Name": "europop"
+  },
+  {
+    "Id": 49,
+    "Name": "early synthpop"
+  },
+  {
+    "Id": 50,
+    "Name": "zolo"
+  },
+  {
+    "Id": 51,
+    "Name": "metal"
+  },
+  {
+    "Id": 52,
+    "Name": "german pop"
+  },
+  {
+    "Id": 53,
+    "Name": "girl group"
+  },
+  {
+    "Id": 54,
+    "Name": "swedish pop"
+  },
+  {
+    "Id": 55,
+    "Name": "hip pop"
+  },
+  {
+    "Id": 56,
+    "Name": "funk rock"
+  },
+  {
+    "Id": 57,
+    "Name": "minneapolis sound"
+  },
+  {
+    "Id": 58,
+    "Name": "candy pop"
+  },
+  {
+    "Id": 59,
+    "Name": "power pop"
+  },
+  {
+    "Id": 60,
+    "Name": "blues rock"
+  },
+  {
+    "Id": 61,
+    "Name": "scottish new wave"
+  },
+  {
+    "Id": 62,
+    "Name": "beatlesque"
+  },
+  {
+    "Id": 63,
+    "Name": "folk rock"
+  },
+  {
+    "Id": 64,
+    "Name": "bronx hip hop"
+  },
+  {
+    "Id": 65,
+    "Name": "classic soul"
+  },
+  {
+    "Id": 66,
+    "Name": "p funk"
+  },
+  {
+    "Id": 67,
+    "Name": "post-disco"
+  },
+  {
+    "Id": 68,
+    "Name": "southern soul"
+  },
+  {
+    "Id": 69,
+    "Name": "neo soul"
+  },
+  {
+    "Id": 70,
+    "Name": "pop"
+  },
+  {
+    "Id": 71,
+    "Name": "art pop"
+  },
+  {
+    "Id": 72,
+    "Name": "adult standards"
+  },
+  {
+    "Id": 73,
+    "Name": "roots rock"
+  },
+  {
+    "Id": 74,
+    "Name": "madchester"
+  },
+  {
+    "Id": 75,
+    "Name": "post-punk"
+  },
+  {
+    "Id": 76,
+    "Name": "uk post-punk"
+  },
+  {
+    "Id": 77,
+    "Name": "eurodance"
+  },
+  {
+    "Id": 78,
+    "Name": "new beat"
+  },
+  {
+    "Id": 79,
+    "Name": "art rock"
+  },
+  {
+    "Id": 80,
+    "Name": "popping"
+  },
+  {
+    "Id": 81,
+    "Name": "jangle pop"
+  },
+  {
+    "Id": 82,
+    "Name": "paisley underground"
+  },
+  {
+    "Id": 83,
+    "Name": "british soul"
+  },
+  {
+    "Id": 84,
+    "Name": "italian lounge"
+  },
+  {
+    "Id": 85,
+    "Name": "boy band"
+  },
+  {
+    "Id": 86,
+    "Name": "contemporary r&b"
+  },
+  {
+    "Id": 87,
+    "Name": "urban contemporary"
+  },
+  {
+    "Id": 88,
+    "Name": "g funk"
+  },
+  {
+    "Id": 89,
+    "Name": "gangster rap"
+  },
+  {
+    "Id": 90,
+    "Name": "west coast rap"
+  },
+  {
+    "Id": 91,
+    "Name": "lgbtq+ hip hop"
+  },
+  {
+    "Id": 92,
+    "Name": "rap rock"
+  },
+  {
+    "Id": 93,
+    "Name": "hardcore hip hop"
+  },
+  {
+    "Id": 94,
+    "Name": "old school atlanta hip hop"
+  },
+  {
+    "Id": 95,
+    "Name": "pop rap"
+  },
+  {
+    "Id": 96,
+    "Name": "new jersey rap"
+  },
+  {
+    "Id": 97,
+    "Name": "atl hip hop"
+  },
+  {
+    "Id": 98,
+    "Name": "st louis rap"
+  },
+  {
+    "Id": 99,
+    "Name": "dirty south rap"
+  },
+  {
+    "Id": 100,
+    "Name": "italian adult pop"
+  },
+  {
+    "Id": 101,
+    "Name": "italo dance"
+  },
+  {
+    "Id": 102,
+    "Name": "slap house"
+  },
+  {
+    "Id": 103,
+    "Name": "atlanta bass"
+  },
+  {
+    "Id": 104,
+    "Name": "bouncy house"
+  },
+  {
+    "Id": 105,
+    "Name": "diva house"
+  },
+  {
+    "Id": 106,
+    "Name": "bubblegum dance"
+  },
+  {
+    "Id": 107,
+    "Name": "big beat"
+  },
+  {
+    "Id": 108,
+    "Name": "electronica"
+  },
+  {
+    "Id": 109,
+    "Name": "lilith"
+  },
+  {
+    "Id": 110,
+    "Name": "pop rock"
+  },
+  {
+    "Id": 111,
+    "Name": "classic house"
+  },
+  {
+    "Id": 112,
+    "Name": "german techno"
+  },
+  {
+    "Id": 113,
+    "Name": "latin pop"
+  },
+  {
+    "Id": 114,
+    "Name": "mexican pop"
+  },
+  {
+    "Id": 115,
+    "Name": "puerto rican pop"
+  },
+  {
+    "Id": 116,
+    "Name": "disco house"
+  },
+  {
+    "Id": 117,
+    "Name": "vocal house"
+  },
+  {
+    "Id": 118,
+    "Name": "tech house"
+  },
+  {
+    "Id": 119,
+    "Name": "tribal house"
+  },
+  {
+    "Id": 120,
+    "Name": "garage house"
+  },
+  {
+    "Id": 121,
+    "Name": "electro"
+  },
+  {
+    "Id": 122,
+    "Name": "filter house"
+  },
+  {
+    "Id": 123,
+    "Name": "philly soul"
+  },
+  {
+    "Id": 124,
+    "Name": "dark pop"
+  },
+  {
+    "Id": 125,
+    "Name": "ectofolk"
+  },
+  {
+    "Id": 126,
+    "Name": "melancholia"
+  },
+  {
+    "Id": 127,
+    "Name": "deep house"
+  },
+  {
+    "Id": 128,
+    "Name": "house"
+  },
+  {
+    "Id": 129,
+    "Name": "speed garage"
+  },
+  {
+    "Id": 130,
+    "Name": "uk dance"
+  },
+  {
+    "Id": 131,
+    "Name": "italo house"
+  },
+  {
+    "Id": 132,
+    "Name": "tropical"
+  },
+  {
+    "Id": 133,
+    "Name": "alternative rock"
+  },
+  {
+    "Id": 134,
+    "Name": "punk"
+  },
+  {
+    "Id": 135,
+    "Name": "classic uk pop"
+  },
+  {
+    "Id": 136,
+    "Name": "classic swedish pop"
+  },
+  {
+    "Id": 137,
+    "Name": "black americana"
+  },
+  {
+    "Id": 138,
+    "Name": "contemporary country"
+  },
+  {
+    "Id": 139,
+    "Name": "country"
+  },
+  {
+    "Id": 140,
+    "Name": "country road"
+  },
+  {
+    "Id": 141,
+    "Name": "australian indigenous"
+  },
+  {
+    "Id": 142,
+    "Name": "british alternative rock"
+  },
+  {
+    "Id": 143,
+    "Name": "folk"
+  },
+  {
+    "Id": 144,
+    "Name": "country rock"
+  },
+  {
+    "Id": 145,
+    "Name": "acid rock"
+  },
+  {
+    "Id": 146,
+    "Name": "proto-metal"
+  },
+  {
+    "Id": 147,
+    "Name": "psychedelic rock"
+  },
+  {
+    "Id": 148,
+    "Name": "art punk"
+  },
+  {
+    "Id": 149,
+    "Name": "southern rock"
+  },
+  {
+    "Id": 150,
+    "Name": "swamp rock"
+  },
+  {
+    "Id": 151,
+    "Name": "british invasion"
+  },
+  {
+    "Id": 152,
+    "Name": "chicago soul"
+  },
+  {
+    "Id": 153,
+    "Name": "british folk"
+  },
+  {
+    "Id": 154,
+    "Name": "classic nz pop"
+  },
+  {
+    "Id": 155,
+    "Name": "kiwi rock"
+  },
+  {
+    "Id": 156,
+    "Name": "nz singer-songwriter"
+  },
+  {
+    "Id": 157,
+    "Name": "nz reggae"
+  },
+  {
+    "Id": 158,
+    "Name": "nederpop"
+  },
+  {
+    "Id": 159,
+    "Name": "merseybeat"
+  },
+  {
+    "Id": 160,
+    "Name": "northern soul"
+  },
+  {
+    "Id": 161,
+    "Name": "native american"
+  },
+  {
+    "Id": 162,
+    "Name": "native american contemporary"
+  },
+  {
+    "Id": 163,
+    "Name": "brill building pop"
+  },
+  {
+    "Id": 164,
+    "Name": "british blues"
+  },
+  {
+    "Id": 165,
+    "Name": "neo mellow"
+  },
+  {
+    "Id": 166,
+    "Name": "progressive rock"
+  },
+  {
+    "Id": 167,
+    "Name": "symphonic rock"
+  },
+  {
+    "Id": 168,
+    "Name": "protopunk"
+  },
+  {
+    "Id": 169,
+    "Name": "rock-and-roll"
+  },
+  {
+    "Id": 170,
+    "Name": "rockabilly"
+  },
+  {
+    "Id": 171,
+    "Name": "nz pop"
+  },
+  {
+    "Id": 172,
+    "Name": "women's music"
+  },
+  {
+    "Id": 173,
+    "Name": "arkansas country"
+  },
+  {
+    "Id": 174,
+    "Name": "outlaw country"
+  },
+  {
+    "Id": 175,
+    "Name": "baroque pop"
+  },
+  {
+    "Id": 176,
+    "Name": "sunshine pop"
+  },
+  {
+    "Id": 177,
+    "Name": "bubblegum pop"
+  },
+  {
+    "Id": 178,
+    "Name": "doo-wop"
+  },
+  {
+    "Id": 179,
+    "Name": "lounge"
+  },
+  {
+    "Id": 180,
+    "Name": "memphis soul"
+  },
+  {
+    "Id": 181,
+    "Name": "alternative americana"
+  },
+  {
+    "Id": 182,
+    "Name": "supergroup"
+  },
+  {
+    "Id": 183,
+    "Name": "synth punk"
+  },
+  {
+    "Id": 184,
+    "Name": "australian pop"
+  },
+  {
+    "Id": 185,
+    "Name": "cosmic american"
+  },
+  {
+    "Id": 186,
+    "Name": "jam band"
+  },
+  {
+    "Id": 187,
+    "Name": "australian alternative rock"
+  },
+  {
+    "Id": 188,
+    "Name": "c86"
+  },
+  {
+    "Id": 189,
+    "Name": "dunedin sound"
+  },
+  {
+    "Id": 190,
+    "Name": "tape club"
+  },
+  {
+    "Id": 191,
+    "Name": "detroit rock"
+  },
+  {
+    "Id": 192,
+    "Name": "rock drums"
+  },
+  {
+    "Id": 193,
+    "Name": "boston rock"
+  },
+  {
+    "Id": 194,
+    "Name": "atl trap"
+  },
+  {
+    "Id": 195,
+    "Name": "melodic rap"
+  },
+  {
+    "Id": 196,
+    "Name": "trap"
+  },
+  {
+    "Id": 197,
+    "Name": "brooklyn drill"
+  },
+  {
+    "Id": 198,
+    "Name": "conscious hip hop"
+  },
+  {
+    "Id": 199,
+    "Name": "deep underground hip hop"
+  },
+  {
+    "Id": 200,
+    "Name": "kentucky hip hop"
+  },
+  {
+    "Id": 201,
+    "Name": "canadian hip hop"
+  },
+  {
+    "Id": 202,
+    "Name": "canadian trap"
+  },
+  {
+    "Id": 203,
+    "Name": "toronto rap"
+  },
+  {
+    "Id": 204,
+    "Name": "north carolina hip hop"
+  },
+  {
+    "Id": 205,
+    "Name": "new orleans rap"
+  },
+  {
+    "Id": 206,
+    "Name": "detroit hip hop"
+  },
+  {
+    "Id": 207,
+    "Name": "chicago rap"
+  },
+  {
+    "Id": 208,
+    "Name": "reggaeton"
+  },
+  {
+    "Id": 209,
+    "Name": "trap latino"
+  },
+  {
+    "Id": 210,
+    "Name": "urbano latino"
+  },
+  {
+    "Id": 211,
+    "Name": "crunk"
+  },
+  {
+    "Id": 212,
+    "Name": "memphis hip hop"
+  },
+  {
+    "Id": 213,
+    "Name": "rap canario"
+  },
+  {
+    "Id": 214,
+    "Name": "trap boricua"
+  },
+  {
+    "Id": 215,
+    "Name": "trap triste"
+  },
+  {
+    "Id": 216,
+    "Name": "southern hip hop"
+  },
+  {
+    "Id": 217,
+    "Name": "latin hip hop"
+  },
+  {
+    "Id": 218,
+    "Name": "florida drill"
+  },
+  {
+    "Id": 219,
+    "Name": "florida rap"
+  },
+  {
+    "Id": 220,
+    "Name": "miami hip hop"
+  },
+  {
+    "Id": 221,
+    "Name": "melodic drill"
+  },
+  {
+    "Id": 222,
+    "Name": "philly rap"
+  },
+  {
+    "Id": 223,
+    "Name": "rage rap"
+  },
+  {
+    "Id": 224,
+    "Name": "dfw rap"
+  },
+  {
+    "Id": 225,
+    "Name": "nyc rap"
+  },
+  {
+    "Id": 226,
+    "Name": "argentine hip hop"
+  },
+  {
+    "Id": 227,
+    "Name": "pop venezolano"
+  },
+  {
+    "Id": 228,
+    "Name": "trap argentino"
+  },
+  {
+    "Id": 229,
+    "Name": "reggaeton flow"
+  },
+  {
+    "Id": 230,
+    "Name": "colombian pop"
+  },
+  {
+    "Id": 231,
+    "Name": "pop reggaeton"
+  },
+  {
+    "Id": 232,
+    "Name": "reggaeton colombiano"
+  },
+  {
+    "Id": 233,
+    "Name": "brostep"
+  },
+  {
+    "Id": 234,
+    "Name": "edm"
+  },
+  {
+    "Id": 235,
+    "Name": "progressive electro house"
+  },
+  {
+    "Id": 236,
+    "Name": "tennessee hip hop"
+  },
+  {
+    "Id": 237,
+    "Name": "trap chileno"
+  },
+  {
+    "Id": 238,
+    "Name": "urbano chileno"
+  },
+  {
+    "Id": 239,
+    "Name": "drill chileno"
+  },
+  {
+    "Id": 240,
+    "Name": "reggaeton chileno"
+  },
+  {
+    "Id": 241,
+    "Name": "cali rap"
+  },
+  {
+    "Id": 242,
+    "Name": "bronx drill"
+  },
+  {
+    "Id": 243,
+    "Name": "canadian contemporary r&b"
+  },
+  {
+    "Id": 244,
+    "Name": "indie hip hop"
+  },
+  {
+    "Id": 245,
+    "Name": "gambian hip hop"
+  },
+  {
+    "Id": 246,
+    "Name": "chicago drill"
+  },
+  {
+    "Id": 247,
+    "Name": "drill"
+  },
+  {
+    "Id": 248,
+    "Name": "australian hip hop"
+  },
+  {
+    "Id": 249,
+    "Name": "meme"
+  },
+  {
+    "Id": 250,
+    "Name": "alternative hip hop"
+  },
+  {
+    "Id": 251,
+    "Name": "uk pop"
+  },
+  {
+    "Id": 252,
+    "Name": "uk contemporary r&b"
+  },
+  {
+    "Id": 253,
+    "Name": "pop dance"
+  },
+  {
+    "Id": 254,
+    "Name": "new jersey underground rap"
+  },
+  {
+    "Id": 255,
+    "Name": "trap queen"
+  },
+  {
+    "Id": 256,
+    "Name": "viral rap"
+  },
+  {
+    "Id": 257,
+    "Name": "hawaiian hip hop"
+  },
+  {
+    "Id": 258,
+    "Name": "complextro"
+  },
+  {
+    "Id": 259,
+    "Name": "deep groove house"
+  },
+  {
+    "Id": 260,
+    "Name": "french tech house"
+  },
+  {
+    "Id": 261,
+    "Name": "french techno"
+  },
+  {
+    "Id": 262,
+    "Name": "dutch house"
+  },
+  {
+    "Id": 263,
+    "Name": "electro house"
+  },
+  {
+    "Id": 264,
+    "Name": "sky room"
+  },
+  {
+    "Id": 265,
+    "Name": "dembow"
+  },
+  {
+    "Id": 266,
+    "Name": "rap dominicano"
+  },
+  {
+    "Id": 267,
+    "Name": "grime"
+  },
+  {
+    "Id": 268,
+    "Name": "pop house"
+  },
+  {
+    "Id": 269,
+    "Name": "alt z"
+  },
+  {
+    "Id": 270,
+    "Name": "aussietronica"
+  },
+  {
+    "Id": 271,
+    "Name": "solo wave"
+  },
+  {
+    "Id": 272,
+    "Name": "new york drill"
+  },
+  {
+    "Id": 273,
+    "Name": "italian tech house"
+  },
+  {
+    "Id": 274,
+    "Name": "bubble trance"
+  },
+  {
+    "Id": 275,
+    "Name": "belgian techno"
+  },
+  {
+    "Id": 276,
+    "Name": "electra"
+  },
+  {
+    "Id": 277,
+    "Name": "dark techno"
+  },
+  {
+    "Id": 278,
+    "Name": "italian techno"
+  },
+  {
+    "Id": 279,
+    "Name": "baton rouge rap"
+  },
+  {
+    "Id": 280,
+    "Name": "dutch pop"
+  },
+  {
+    "Id": 281,
+    "Name": "melbourne bounce international"
+  },
+  {
+    "Id": 282,
+    "Name": "houston rap"
+  },
+  {
+    "Id": 283,
+    "Name": "big room"
+  },
+  {
+    "Id": 284,
+    "Name": "tropical house"
+  },
+  {
+    "Id": 285,
+    "Name": "metropopolis"
+  },
+  {
+    "Id": 286,
+    "Name": "dutch edm"
+  },
+  {
+    "Id": 287,
+    "Name": "trance"
+  },
+  {
+    "Id": 288,
+    "Name": "brazilian edm"
+  },
+  {
+    "Id": 289,
+    "Name": "trance brasileiro"
+  },
+  {
+    "Id": 290,
+    "Name": "brazilian bass"
+  },
+  {
+    "Id": 291,
+    "Name": "bass house"
+  },
+  {
+    "Id": 292,
+    "Name": "folktronica"
+  },
+  {
+    "Id": 293,
+    "Name": "indietronica"
+  },
+  {
+    "Id": 294,
+    "Name": "intelligent dance music"
+  },
+  {
+    "Id": 295,
+    "Name": "trip hop"
+  },
+  {
+    "Id": 296,
+    "Name": "chill pop"
+  },
+  {
+    "Id": 297,
+    "Name": "k-pop"
+  },
+  {
+    "Id": 298,
+    "Name": "russian edm"
+  },
+  {
+    "Id": 299,
+    "Name": "jersey club"
+  },
+  {
+    "Id": 300,
+    "Name": "indie rock italiano"
+  },
+  {
+    "Id": 301,
+    "Name": "italian pop"
+  },
+  {
+    "Id": 302,
+    "Name": "german dance"
+  },
+  {
+    "Id": 303,
+    "Name": "pop edm"
+  },
+  {
+    "Id": 304,
+    "Name": "hel"
+  },
+  {
+    "Id": 305,
+    "Name": "american metalcore"
+  },
+  {
+    "Id": 306,
+    "Name": "australian house"
+  },
+  {
+    "Id": 307,
+    "Name": "electronic trap"
+  },
+  {
+    "Id": 308,
+    "Name": "indonesian hip hop"
+  },
+  {
+    "Id": 309,
+    "Name": "latin viral pop"
+  },
+  {
+    "Id": 310,
+    "Name": "rap latina"
+  },
+  {
+    "Id": 311,
+    "Name": "alternative dance"
+  },
+  {
+    "Id": 312,
+    "Name": "electropop"
+  },
+  {
+    "Id": 313,
+    "Name": "neo-synthpop"
+  },
+  {
+    "Id": 314,
+    "Name": "deep tropical house"
+  },
+  {
+    "Id": 315,
+    "Name": "talent show"
+  },
+  {
+    "Id": 316,
+    "Name": "virginia hip hop"
+  },
+  {
+    "Id": 317,
+    "Name": "k-pop girl group"
+  },
+  {
+    "Id": 318,
+    "Name": "scandipop"
+  },
+  {
+    "Id": 319,
+    "Name": "swedish electropop"
+  },
+  {
+    "Id": 320,
+    "Name": "pop nacional"
+  },
+  {
+    "Id": 321,
+    "Name": "sertanejo universitario"
+  },
+  {
+    "Id": 322,
+    "Name": "soulful house"
+  },
+  {
+    "Id": 323,
+    "Name": "funky house"
+  },
+  {
+    "Id": 324,
+    "Name": "modern jungle"
+  },
+  {
+    "Id": 325,
+    "Name": "melbourne bounce"
+  },
+  {
+    "Id": 326,
+    "Name": "progressive house"
+  },
+  {
+    "Id": 327,
+    "Name": "dancefloor dnb"
+  },
+  {
+    "Id": 328,
+    "Name": "drum and bass"
+  },
+  {
+    "Id": 329,
+    "Name": "uk dnb"
+  },
+  {
+    "Id": 330,
+    "Name": "arab pop"
+  },
+  {
+    "Id": 331,
+    "Name": "lebanese pop"
+  },
+  {
+    "Id": 332,
+    "Name": "modern blues rock"
+  },
+  {
+    "Id": 333,
+    "Name": "country dawn"
+  },
+  {
+    "Id": 334,
+    "Name": "modern rock"
+  },
+  {
+    "Id": 335,
+    "Name": "australian psych"
+  },
+  {
+    "Id": 336,
+    "Name": "neo-psychedelic"
+  },
+  {
+    "Id": 337,
+    "Name": "australian dance"
+  },
+  {
+    "Id": 338,
+    "Name": "irish singer-songwriter"
+  },
+  {
+    "Id": 339,
+    "Name": "pov: indie"
+  },
+  {
+    "Id": 340,
+    "Name": "hyperpop"
+  },
+  {
+    "Id": 341,
+    "Name": "indie pop"
+  },
+  {
+    "Id": 342,
+    "Name": "indie anthem-folk"
+  },
+  {
+    "Id": 343,
+    "Name": "moombahton"
+  },
+  {
+    "Id": 344,
+    "Name": "melodic dubstep"
+  },
+  {
+    "Id": 345,
+    "Name": "nyc pop"
+  },
+  {
+    "Id": 346,
+    "Name": "future house"
+  },
+  {
+    "Id": 347,
+    "Name": "dutch trance"
+  },
+  {
+    "Id": 348,
+    "Name": "indian edm"
+  },
+  {
+    "Id": 349,
+    "Name": "dream trance"
+  },
+  {
+    "Id": 350,
+    "Name": "belgian edm"
+  },
+  {
+    "Id": 351,
+    "Name": "dubstep"
+  },
+  {
+    "Id": 352,
+    "Name": "deep pop edm"
+  },
+  {
+    "Id": 353,
+    "Name": "la pop"
+  },
+  {
+    "Id": 354,
+    "Name": "escape room"
+  },
+  {
+    "Id": 355,
+    "Name": "ukg revival"
+  },
+  {
+    "Id": 356,
+    "Name": "uk house"
+  },
+  {
+    "Id": 357,
+    "Name": "scottish electronic"
+  },
+  {
+    "Id": 358,
+    "Name": "scottish techno"
+  },
+  {
+    "Id": 359,
+    "Name": "slow game"
+  },
+  {
+    "Id": 360,
+    "Name": "ohio hip hop"
+  },
+  {
+    "Id": 361,
+    "Name": "indie rock"
+  },
+  {
+    "Id": 362,
+    "Name": "pluggnb"
+  },
+  {
+    "Id": 363,
+    "Name": "plugg"
+  },
+  {
+    "Id": 364,
+    "Name": "underground hip hop"
+  },
+  {
+    "Id": 365,
+    "Name": "chicago bop"
+  },
+  {
+    "Id": 366,
+    "Name": "detroit trap"
+  },
+  {
+    "Id": 367,
+    "Name": "rap conscient"
+  },
+  {
+    "Id": 368,
+    "Name": "vapor trap"
+  },
+  {
+    "Id": 369,
+    "Name": "barbadian pop"
+  },
+  {
+    "Id": 370,
+    "Name": "downtempo"
+  },
+  {
+    "Id": 371,
+    "Name": "alabama rap"
+  },
+  {
+    "Id": 372,
+    "Name": "battle rap"
+  },
+  {
+    "Id": 373,
+    "Name": "london rap"
+  },
+  {
+    "Id": 374,
+    "Name": "uk hip hop"
+  },
+  {
+    "Id": 375,
+    "Name": "indie poptimism"
+  },
+  {
+    "Id": 376,
+    "Name": "trap soul"
+  },
+  {
+    "Id": 377,
+    "Name": "pittsburgh rap"
+  },
+  {
+    "Id": 378,
+    "Name": "emo rap"
+  },
+  {
+    "Id": 379,
+    "Name": "chicago indie"
+  },
+  {
+    "Id": 380,
+    "Name": "american choir"
+  },
+  {
+    "Id": 381,
+    "Name": "children's choir"
+  },
+  {
+    "Id": 382,
+    "Name": "viral trap"
+  },
+  {
+    "Id": 383,
+    "Name": "oc rap"
+  },
+  {
+    "Id": 384,
+    "Name": "alternative r&b"
+  },
+  {
+    "Id": 385,
+    "Name": "indie pop rap"
+  },
+  {
+    "Id": 386,
+    "Name": "portland hip hop"
+  },
+  {
+    "Id": 387,
+    "Name": "dmv rap"
+  },
+  {
+    "Id": 388,
+    "Name": "etherpop"
+  },
+  {
+    "Id": 389,
+    "Name": "channel islands indie"
+  },
+  {
+    "Id": 390,
+    "Name": "indie soul"
+  },
+  {
+    "Id": 391,
+    "Name": "vapor soul"
+  },
+  {
+    "Id": 392,
+    "Name": "afroswing"
+  },
+  {
+    "Id": 393,
+    "Name": "afrobeats"
+  },
+  {
+    "Id": 394,
+    "Name": "nigerian pop"
+  },
+  {
+    "Id": 395,
+    "Name": "dark trap"
+  },
+  {
+    "Id": 396,
+    "Name": "political hip hop"
+  },
+  {
+    "Id": 397,
+    "Name": "afrofuturism"
+  },
+  {
+    "Id": 398,
+    "Name": "experimental r&b"
+  },
+  {
+    "Id": 399,
+    "Name": "boston hip hop"
+  },
+  {
+    "Id": 400,
+    "Name": "aesthetic rap"
+  },
+  {
+    "Id": 401,
+    "Name": "cloud rap"
+  },
+  {
+    "Id": 402,
+    "Name": "sad rap"
+  },
+  {
+    "Id": 403,
+    "Name": "pop soul"
+  },
+  {
+    "Id": 404,
+    "Name": "modern alternative pop"
+  },
+  {
+    "Id": 405,
+    "Name": "jazz rap"
+  },
+  {
+    "Id": 406,
+    "Name": "mississippi hip hop"
+  },
+  {
+    "Id": 407,
+    "Name": "electric blues"
+  },
+  {
+    "Id": 408,
+    "Name": "viral pop"
+  },
+  {
+    "Id": 409,
+    "Name": "irish rock"
+  },
+  {
+    "Id": 410,
+    "Name": "reggae fusion"
+  },
+  {
+    "Id": 411,
+    "Name": "country pop"
+  },
+  {
+    "Id": 412,
+    "Name": "bergen indie"
+  },
+  {
+    "Id": 413,
+    "Name": "hollywood"
+  },
+  {
+    "Id": 414,
+    "Name": "alternative metal"
+  },
+  {
+    "Id": 415,
+    "Name": "post-grunge"
+  },
+  {
+    "Id": 416,
+    "Name": "acoustic pop"
+  },
+  {
+    "Id": 417,
+    "Name": "modern power pop"
+  },
+  {
+    "Id": 418,
+    "Name": "broadway"
+  },
+  {
+    "Id": 419,
+    "Name": "movie tunes"
+  },
+  {
+    "Id": 420,
+    "Name": "show tunes"
+  },
+  {
+    "Id": 421,
+    "Name": "hyphy"
+  },
+  {
+    "Id": 422,
+    "Name": "danish pop"
+  },
+  {
+    "Id": 423,
+    "Name": "la indie"
+  },
+  {
+    "Id": 424,
+    "Name": "modern alternative rock"
+  },
+  {
+    "Id": 425,
+    "Name": "stomp pop"
+  },
+  {
+    "Id": 426,
+    "Name": "neon pop punk"
+  },
+  {
+    "Id": 427,
+    "Name": "pop punk"
+  },
+  {
+    "Id": 428,
+    "Name": "folk-pop"
+  },
+  {
+    "Id": 429,
+    "Name": "stomp and holler"
+  },
+  {
+    "Id": 430,
+    "Name": "nu metal"
+  },
+  {
+    "Id": 431,
+    "Name": "jazz blues"
+  },
+  {
+    "Id": 432,
+    "Name": "vocal jazz"
+  },
+  {
+    "Id": 433,
+    "Name": "socal pop punk"
+  },
+  {
+    "Id": 434,
+    "Name": "modern folk rock"
+  },
+  {
+    "Id": 435,
+    "Name": "uk americana"
+  },
+  {
+    "Id": 436,
+    "Name": "christian rock"
+  },
+  {
+    "Id": 437,
+    "Name": "melodic metalcore"
+  },
+  {
+    "Id": 438,
+    "Name": "metalcore"
+  },
+  {
+    "Id": 439,
+    "Name": "trancecore"
+  },
+  {
+    "Id": 440,
+    "Name": "emo"
+  },
+  {
+    "Id": 441,
+    "Name": "chicago hardcore"
+  },
+  {
+    "Id": 442,
+    "Name": "chicago punk"
+  },
+  {
+    "Id": 443,
+    "Name": "hardcore punk"
+  },
+  {
+    "Id": 444,
+    "Name": "seattle hip hop"
+  },
+  {
+    "Id": 445,
+    "Name": "post-teen pop"
+  },
+  {
+    "Id": 446,
+    "Name": "deep dance pop"
+  },
+  {
+    "Id": 447,
+    "Name": "k-rap"
+  },
+  {
+    "Id": 448,
+    "Name": "korean old school hip hop"
+  },
+  {
+    "Id": 449,
+    "Name": "grunge"
+  },
+  {
+    "Id": 450,
+    "Name": "swedish hard rock"
+  },
+  {
+    "Id": 451,
+    "Name": "swedish melodic rock"
+  },
+  {
+    "Id": 452,
+    "Name": "pixie"
+  },
+  {
+    "Id": 453,
+    "Name": "pop emo"
+  },
+  {
+    "Id": 454,
+    "Name": "south carolina hip hop"
+  },
+  {
+    "Id": 455,
+    "Name": "oxford indie"
+  },
+  {
+    "Id": 456,
+    "Name": "idol"
+  },
+  {
+    "Id": 457,
+    "Name": "comic"
+  },
+  {
+    "Id": 458,
+    "Name": "garage rock"
+  },
+  {
+    "Id": 459,
+    "Name": "punk blues"
+  },
+  {
+    "Id": 460,
+    "Name": "afropop"
+  },
+  {
+    "Id": 461,
+    "Name": "azonto"
+  },
+  {
+    "Id": 462,
+    "Name": "azontobeats"
+  },
+  {
+    "Id": 463,
+    "Name": "nigerian hip hop"
+  },
+  {
+    "Id": 464,
+    "Name": "uk funky"
+  },
+  {
+    "Id": 465,
+    "Name": "german hard rock"
+  },
+  {
+    "Id": 466,
+    "Name": "german metal"
+  },
+  {
+    "Id": 467,
+    "Name": "german rock"
+  },
+  {
+    "Id": 468,
+    "Name": "classic country pop"
+  },
+  {
+    "Id": 469,
+    "Name": "electropowerpop"
+  },
+  {
+    "Id": 470,
+    "Name": "swedish synthpop"
+  },
+  {
+    "Id": 471,
+    "Name": "canadian rock"
+  },
+  {
+    "Id": 472,
+    "Name": "modern country rock"
+  },
+  {
+    "Id": 473,
+    "Name": "britpop"
+  },
+  {
+    "Id": 474,
+    "Name": "australian electropop"
+  },
+  {
+    "Id": 475,
+    "Name": "australian indie"
+  },
+  {
+    "Id": 476,
+    "Name": "nwobhm"
+  },
+  {
+    "Id": 477,
+    "Name": "screamo"
+  },
+  {
+    "Id": 478,
+    "Name": "athens indie"
+  },
+  {
+    "Id": 479,
+    "Name": "canadian country"
+  },
+  {
+    "Id": 480,
+    "Name": "dance-punk"
+  },
+  {
+    "Id": 481,
+    "Name": "new rave"
+  },
+  {
+    "Id": 482,
+    "Name": "dancehall"
+  },
+  {
+    "Id": 483,
+    "Name": "oakland hip hop"
+  },
+  {
+    "Id": 484,
+    "Name": "moldovan pop"
+  },
+  {
+    "Id": 485,
+    "Name": "birmingham metal"
+  },
+  {
+    "Id": 486,
+    "Name": "canadian metal"
+  },
+  {
+    "Id": 487,
+    "Name": "double drumming"
+  },
+  {
+    "Id": 488,
+    "Name": "ska"
+  },
+  {
+    "Id": 489,
+    "Name": "ska revival"
+  },
+  {
+    "Id": 490,
+    "Name": "dutch prog"
+  },
+  {
+    "Id": 491,
+    "Name": "dutch rock"
+  },
+  {
+    "Id": 492,
+    "Name": "soul blues"
+  },
+  {
+    "Id": 493,
+    "Name": "torch song"
+  },
+  {
+    "Id": 494,
+    "Name": "classic garage rock"
+  },
+  {
+    "Id": 495,
+    "Name": "easy listening"
+  },
+  {
+    "Id": 496,
+    "Name": "psychedelic soul"
+  },
+  {
+    "Id": 497,
+    "Name": "classic girl group"
+  },
+  {
+    "Id": 498,
+    "Name": "soul jazz"
+  },
+  {
+    "Id": 499,
+    "Name": "soundtrack"
+  },
+  {
+    "Id": 500,
+    "Name": "big band"
+  },
+  {
+    "Id": 501,
+    "Name": "harlem renaissance"
+  },
+  {
+    "Id": 502,
+    "Name": "jazz"
+  },
+  {
+    "Id": 503,
+    "Name": "jazz piano"
+  },
+  {
+    "Id": 504,
+    "Name": "swing"
+  },
+  {
+    "Id": 505,
+    "Name": "new orleans soul"
+  },
+  {
+    "Id": 506,
+    "Name": "british orchestra"
+  },
+  {
+    "Id": 507,
+    "Name": "orchestra"
+  },
+  {
+    "Id": 508,
+    "Name": "dixieland"
+  },
+  {
+    "Id": 509,
+    "Name": "jazz trumpet"
+  },
+  {
+    "Id": 510,
+    "Name": "new orleans jazz"
+  },
+  {
+    "Id": 511,
+    "Name": "pop r&b"
+  },
+  {
+    "Id": 512,
+    "Name": "classic texas country"
+  },
+  {
+    "Id": 513,
+    "Name": "k-pop boy group"
+  },
+  {
+    "Id": 514,
+    "Name": "deep euro house"
+  },
+  {
+    "Id": 515,
+    "Name": "israeli pop"
+  },
+  {
+    "Id": 516,
+    "Name": "gauze pop"
+  },
+  {
+    "Id": 517,
+    "Name": "swedish tropical house"
+  },
+  {
+    "Id": 518,
+    "Name": "vocal trance"
+  },
+  {
+    "Id": 519,
+    "Name": "game mood"
+  },
+  {
+    "Id": 520,
+    "Name": "cedm"
+  },
+  {
+    "Id": 521,
+    "Name": "uplifting trance"
+  },
+  {
+    "Id": 522,
+    "Name": "hands up"
+  },
+  {
+    "Id": 523,
+    "Name": "canadian electronic"
+  },
+  {
+    "Id": 524,
+    "Name": "belgian dance"
+  },
+  {
+    "Id": 525,
+    "Name": "romanian house"
+  },
+  {
+    "Id": 526,
+    "Name": "romanian pop"
+  },
+  {
+    "Id": 527,
+    "Name": "chillwave"
+  },
+  {
+    "Id": 528,
+    "Name": "albanian pop"
+  },
+  {
+    "Id": 529,
+    "Name": "r&b en espanol"
+  },
+  {
+    "Id": 530,
+    "Name": "spanish hip hop"
+  },
+  {
+    "Id": 531,
+    "Name": "urbano espanol"
+  },
+  {
+    "Id": 532,
+    "Name": "flamenco"
+  },
+  {
+    "Id": 533,
+    "Name": "rumba"
+  },
+  {
+    "Id": 534,
+    "Name": "world"
+  },
+  {
+    "Id": 535,
+    "Name": "flamenco guitar"
+  },
+  {
+    "Id": 536,
+    "Name": "latin talent show"
+  },
+  {
+    "Id": 537,
+    "Name": "spanish pop"
+  },
+  {
+    "Id": 538,
+    "Name": "flamenco urbano"
+  },
+  {
+    "Id": 539,
+    "Name": "drill espanol"
+  },
+  {
+    "Id": 540,
+    "Name": "spanish indie pop"
+  },
+  {
+    "Id": 541,
+    "Name": "spanish rock"
+  },
+  {
+    "Id": 542,
+    "Name": "pop flamenco"
+  },
+  {
+    "Id": 543,
+    "Name": "nuevo flamenco"
+  },
+  {
+    "Id": 544,
+    "Name": "latin arena pop"
+  },
+  {
+    "Id": 545,
+    "Name": "spanish pop rock"
+  },
+  {
+    "Id": 546,
+    "Name": "cantautor"
+  },
+  {
+    "Id": 547,
+    "Name": "latin rock"
+  },
+  {
+    "Id": 548,
+    "Name": "cumbia"
+  },
+  {
+    "Id": 549,
+    "Name": "latin alternative"
+  },
+  {
+    "Id": 550,
+    "Name": "pop electronico"
+  },
+  {
+    "Id": 551,
+    "Name": "tropical alternativo"
+  },
+  {
+    "Id": 552,
+    "Name": "cumbia pop"
+  },
+  {
+    "Id": 553,
+    "Name": "rock en espanol"
+  },
+  {
+    "Id": 554,
+    "Name": "rap espanol"
+  },
+  {
+    "Id": 555,
+    "Name": "rock alternativo espanol"
+  },
+  {
+    "Id": 556,
+    "Name": "indie triste"
+  },
+  {
+    "Id": 557,
+    "Name": "electro latino"
+  },
+  {
+    "Id": 558,
+    "Name": "argentine rock"
+  },
+  {
+    "Id": 559,
+    "Name": "pop argentino"
+  },
+  {
+    "Id": 560,
+    "Name": "r&b argentino"
+  },
+  {
+    "Id": 561,
+    "Name": "rockabilly en espanol"
+  },
+  {
+    "Id": 562,
+    "Name": "spanish new wave"
+  },
+  {
+    "Id": 563,
+    "Name": "spanish rockabilly"
+  },
+  {
+    "Id": 564,
+    "Name": "musica chihuahuense"
+  },
+  {
+    "Id": 565,
+    "Name": "nueva musica mexicana"
+  },
+  {
+    "Id": 566,
+    "Name": "spanish synthpop"
+  },
+  {
+    "Id": 567,
+    "Name": "reggae catala"
+  },
+  {
+    "Id": 568,
+    "Name": "ska catala"
+  },
+  {
+    "Id": 569,
+    "Name": "carnaval cadiz"
+  },
+  {
+    "Id": 570,
+    "Name": "bachata"
+  },
+  {
+    "Id": 571,
+    "Name": "musica aragonesa"
+  },
+  {
+    "Id": 572,
+    "Name": "trova"
+  },
+  {
+    "Id": 573,
+    "Name": "mexican rock"
+  },
+  {
+    "Id": 574,
+    "Name": "sleaze rock"
+  },
+  {
+    "Id": 575,
+    "Name": "instrumental stoner rock"
+  },
+  {
+    "Id": 576,
+    "Name": "speed metal"
+  },
+  {
+    "Id": 577,
+    "Name": "glam punk"
+  },
+  {
+    "Id": 578,
+    "Name": "brighton indie"
+  },
+  {
+    "Id": 579,
+    "Name": "britpop revival"
+  },
+  {
+    "Id": 580,
+    "Name": "deep swedish rock"
+  },
+  {
+    "Id": 581,
+    "Name": "groove metal"
+  },
+  {
+    "Id": 582,
+    "Name": "old school thrash"
+  },
+  {
+    "Id": 583,
+    "Name": "texas metal"
+  },
+  {
+    "Id": 584,
+    "Name": "christian metal"
+  },
+  {
+    "Id": 585,
+    "Name": "melodic thrash"
+  },
+  {
+    "Id": 586,
+    "Name": "thrash metal"
+  },
+  {
+    "Id": 587,
+    "Name": "nwocr"
+  },
+  {
+    "Id": 588,
+    "Name": "industrial metal"
+  },
+  {
+    "Id": 589,
+    "Name": "industrial rock"
+  },
+  {
+    "Id": 590,
+    "Name": "indie salvadoreno"
+  },
+  {
+    "Id": 591,
+    "Name": "flute rock"
+  },
+  {
+    "Id": 592,
+    "Name": "german power metal"
+  },
+  {
+    "Id": 593,
+    "Name": "power metal"
+  },
+  {
+    "Id": 594,
+    "Name": "symphonic metal"
+  },
+  {
+    "Id": 595,
+    "Name": "blues"
+  },
+  {
+    "Id": 596,
+    "Name": "rap metal"
+  },
+  {
+    "Id": 597,
+    "Name": "funk metal"
+  },
+  {
+    "Id": 598,
+    "Name": "neo-progressive"
+  },
+  {
+    "Id": 599,
+    "Name": "stoner rock"
+  },
+  {
+    "Id": 600,
+    "Name": "uk doom metal"
+  },
+  {
+    "Id": 601,
+    "Name": "dutch americana"
+  },
+  {
+    "Id": 602,
+    "Name": "spanish indie rock"
+  },
+  {
+    "Id": 603,
+    "Name": "skate punk"
+  },
+  {
+    "Id": 604,
+    "Name": "milan indie"
+  },
+  {
+    "Id": 605,
+    "Name": "shoegaze"
+  },
+  {
+    "Id": 606,
+    "Name": "mexican classic rock"
+  },
+  {
+    "Id": 607,
+    "Name": "worcester ma indie"
+  },
+  {
+    "Id": 608,
+    "Name": "instrumental rock"
+  },
+  {
+    "Id": 609,
+    "Name": "texas blues"
+  },
+  {
+    "Id": 610,
+    "Name": "early us punk"
+  },
+  {
+    "Id": 611,
+    "Name": "anti-folk"
+  },
+  {
+    "Id": 612,
+    "Name": "spacegrunge"
+  },
+  {
+    "Id": 613,
+    "Name": "cyberpunk"
+  },
+  {
+    "Id": 614,
+    "Name": "electronic rock"
+  },
+  {
+    "Id": 615,
+    "Name": "industrial"
+  },
+  {
+    "Id": 616,
+    "Name": "canadian blues"
+  },
+  {
+    "Id": 617,
+    "Name": "modern blues"
+  },
+  {
+    "Id": 618,
+    "Name": "panamanian pop"
+  },
+  {
+    "Id": 619,
+    "Name": "panamanian rock"
+  },
+  {
+    "Id": 620,
+    "Name": "christian alternative rock"
+  },
+  {
+    "Id": 621,
+    "Name": "christian hip hop"
+  },
+  {
+    "Id": 622,
+    "Name": "uk christian rap"
+  },
+  {
+    "Id": 623,
+    "Name": "jazz harp"
+  },
+  {
+    "Id": 624,
+    "Name": "dark rock"
+  },
+  {
+    "Id": 625,
+    "Name": "dc indie"
+  },
+  {
+    "Id": 626,
+    "Name": "british singer-songwriter"
+  },
+  {
+    "Id": 627,
+    "Name": "breaks"
+  },
+  {
+    "Id": 628,
+    "Name": "experimental house"
+  },
+  {
+    "Id": 629,
+    "Name": "klubowe"
+  },
+  {
+    "Id": 630,
+    "Name": "pink noise"
+  },
+  {
+    "Id": 631,
+    "Name": "meme rap"
+  },
+  {
+    "Id": 632,
+    "Name": "indian folk"
+  },
+  {
+    "Id": 633,
+    "Name": "deep disco house"
+  },
+  {
+    "Id": 634,
+    "Name": "malian blues"
+  },
+  {
+    "Id": 635,
+    "Name": "mande pop"
+  },
+  {
+    "Id": 636,
+    "Name": "dutch experimental electronic"
+  },
+  {
+    "Id": 637,
+    "Name": "float house"
+  },
+  {
+    "Id": 638,
+    "Name": "chill drill"
+  },
+  {
+    "Id": 639,
+    "Name": "german house"
+  },
+  {
+    "Id": 640,
+    "Name": "dancehall queen"
+  },
+  {
+    "Id": 641,
+    "Name": "uk dancehall"
+  },
+  {
+    "Id": 642,
+    "Name": "classic hardstyle"
+  },
+  {
+    "Id": 643,
+    "Name": "euphoric hardstyle"
+  },
+  {
+    "Id": 644,
+    "Name": "rawstyle"
+  },
+  {
+    "Id": 645,
+    "Name": "future garage"
+  },
+  {
+    "Id": 646,
+    "Name": "uk tech house"
+  },
+  {
+    "Id": 647,
+    "Name": "filthstep"
+  },
+  {
+    "Id": 648,
+    "Name": "footwork"
+  },
+  {
+    "Id": 649,
+    "Name": "ghettotech"
+  },
+  {
+    "Id": 650,
+    "Name": "brazilian house"
+  },
+  {
+    "Id": 651,
+    "Name": "dutch hip hop"
+  },
+  {
+    "Id": 652,
+    "Name": "dutch rap pop"
+  },
+  {
+    "Id": 653,
+    "Name": "uk alternative pop"
+  },
+  {
+    "Id": 654,
+    "Name": "fidget house"
+  },
+  {
+    "Id": 655,
+    "Name": "belgian pop"
+  },
+  {
+    "Id": 656,
+    "Name": "g-house"
+  },
+  {
+    "Id": 657,
+    "Name": "dembow dominicano"
+  },
+  {
+    "Id": 658,
+    "Name": "rap kreyol"
+  },
+  {
+    "Id": 659,
+    "Name": "francoton"
+  },
+  {
+    "Id": 660,
+    "Name": "shiver pop"
+  },
+  {
+    "Id": 661,
+    "Name": "acid house"
+  },
+  {
+    "Id": 662,
+    "Name": "speedrun"
+  },
+  {
+    "Id": 663,
+    "Name": "video game music"
+  },
+  {
+    "Id": 664,
+    "Name": "sped up"
+  },
+  {
+    "Id": 665,
+    "Name": "guaracha"
+  },
+  {
+    "Id": 666,
+    "Name": "irish pop"
+  },
+  {
+    "Id": 667,
+    "Name": "perth indie"
+  },
+  {
+    "Id": 668,
+    "Name": "italian disco"
+  },
+  {
+    "Id": 669,
+    "Name": "nz hip hop"
+  },
+  {
+    "Id": 670,
+    "Name": "russian dance"
+  },
+  {
+    "Id": 671,
+    "Name": "danish electronic"
+  },
+  {
+    "Id": 672,
+    "Name": "asian american hip hop"
+  },
+  {
+    "Id": 673,
+    "Name": "swedish idol pop"
+  },
+  {
+    "Id": 674,
+    "Name": "jamaican dancehall"
+  },
+  {
+    "Id": 675,
+    "Name": "abstract beats"
+  },
+  {
+    "Id": 676,
+    "Name": "rap boricua"
+  },
+  {
+    "Id": 677,
+    "Name": "neoperreo"
+  },
+  {
+    "Id": 678,
+    "Name": "emo trap en espanol"
+  },
+  {
+    "Id": 679,
+    "Name": "rap catala"
+  },
+  {
+    "Id": 680,
+    "Name": "trap catala"
+  },
+  {
+    "Id": 681,
+    "Name": "rap ivoire"
+  },
+  {
+    "Id": 682,
+    "Name": "mambo chileno"
+  },
+  {
+    "Id": 683,
+    "Name": "latin afrobeat"
+  },
+  {
+    "Id": 684,
+    "Name": "puerto rican rock"
+  },
+  {
+    "Id": 685,
+    "Name": "rap conciencia"
+  },
+  {
+    "Id": 686,
+    "Name": "bachata dominicana"
+  },
+  {
+    "Id": 687,
+    "Name": "deep latin alternative"
+  },
+  {
+    "Id": 688,
+    "Name": "musica canaria"
+  },
+  {
+    "Id": 689,
+    "Name": "funk pop"
+  },
+  {
+    "Id": 690,
+    "Name": "funk rj"
+  },
+  {
+    "Id": 691,
+    "Name": "pagode baiano"
+  },
+  {
+    "Id": 692,
+    "Name": "circuit"
+  },
+  {
+    "Id": 693,
+    "Name": "cubaton"
+  },
+  {
+    "Id": 694,
+    "Name": "funk carioca"
+  },
+  {
+    "Id": 695,
+    "Name": "french hip hop"
+  },
+  {
+    "Id": 696,
+    "Name": "pop urbaine"
+  },
+  {
+    "Id": 697,
+    "Name": "funk mtg"
+  },
+  {
+    "Id": 698,
+    "Name": "funk paulista"
+  },
+  {
+    "Id": 699,
+    "Name": "nightcore"
+  },
+  {
+    "Id": 700,
+    "Name": "glitchcore"
+  },
+  {
+    "Id": 701,
+    "Name": "drumless hip hop"
+  },
+  {
+    "Id": 702,
+    "Name": "flint hip hop"
+  },
+  {
+    "Id": 703,
+    "Name": "minimal tech house"
+  },
+  {
+    "Id": 704,
+    "Name": "colombian hip hop"
+  },
+  {
+    "Id": 705,
+    "Name": "canadian old school hip hop"
+  },
+  {
+    "Id": 706,
+    "Name": "teen pop"
+  },
+  {
+    "Id": 707,
+    "Name": "chicano rap"
+  },
+  {
+    "Id": 708,
+    "Name": "salsa"
+  },
+  {
+    "Id": 709,
+    "Name": "new french touch"
+  },
+  {
+    "Id": 710,
+    "Name": "german trance"
+  },
+  {
+    "Id": 711,
+    "Name": "leicester indie"
+  },
+  {
+    "Id": 712,
+    "Name": "garage rock revival"
+  },
+  {
+    "Id": 713,
+    "Name": "swedish garage rock"
+  },
+  {
+    "Id": 714,
+    "Name": "swedish indie rock"
+  },
+  {
+    "Id": 715,
+    "Name": "drift phonk"
+  },
+  {
+    "Id": 716,
+    "Name": "old school dancehall"
+  },
+  {
+    "Id": 717,
+    "Name": "country rap"
+  },
+  {
+    "Id": 718,
+    "Name": "redneck"
+  },
+  {
+    "Id": 719,
+    "Name": "speed house"
+  },
+  {
+    "Id": 720,
+    "Name": "mashup"
+  },
+  {
+    "Id": 721,
+    "Name": "jamtronica"
+  },
+  {
+    "Id": 722,
+    "Name": "jazztronica"
+  },
+  {
+    "Id": 723,
+    "Name": "livetronica"
+  },
+  {
+    "Id": 724,
+    "Name": "future bass"
+  },
+  {
+    "Id": 725,
+    "Name": "deathstep"
+  },
+  {
+    "Id": 726,
+    "Name": "gaming dubstep"
+  },
+  {
+    "Id": 727,
+    "Name": "tearout"
+  },
+  {
+    "Id": 728,
+    "Name": "traprun"
+  },
+  {
+    "Id": 729,
+    "Name": "indiana hip hop"
+  },
+  {
+    "Id": 730,
+    "Name": "breakbeat"
+  },
+  {
+    "Id": 731,
+    "Name": "nashville hip hop"
+  },
+  {
+    "Id": 732,
+    "Name": "riddim dubstep"
+  },
+  {
+    "Id": 733,
+    "Name": "bass trap"
+  },
+  {
+    "Id": 734,
+    "Name": "bassline"
+  },
+  {
+    "Id": 735,
+    "Name": "gaming edm"
+  },
+  {
+    "Id": 736,
+    "Name": "modern indie pop"
+  },
+  {
+    "Id": 737,
+    "Name": "mexican edm"
+  },
+  {
+    "Id": 738,
+    "Name": "dutch dnb"
+  },
+  {
+    "Id": 739,
+    "Name": "vapor twitch"
+  },
+  {
+    "Id": 740,
+    "Name": "bases de freestyle"
+  },
+  {
+    "Id": 741,
+    "Name": "soca"
+  },
+  {
+    "Id": 742,
+    "Name": "vincy soca"
+  },
+  {
+    "Id": 743,
+    "Name": "instrumental grime"
+  },
+  {
+    "Id": 744,
+    "Name": "canadian latin"
+  },
+  {
+    "Id": 745,
+    "Name": "turntablism"
+  },
+  {
+    "Id": 746,
+    "Name": "finnish edm"
+  },
+  {
+    "Id": 747,
+    "Name": "latin house"
+  },
+  {
+    "Id": 748,
+    "Name": "norwegian singer-songwriter"
+  },
+  {
+    "Id": 749,
+    "Name": "rave"
+  },
+  {
+    "Id": 750,
+    "Name": "hamburg electronic"
+  },
+  {
+    "Id": 751,
+    "Name": "happy hardcore"
+  },
+  {
+    "Id": 752,
+    "Name": "voetbal"
+  },
+  {
+    "Id": 753,
+    "Name": "african rock"
+  },
+  {
+    "Id": 754,
+    "Name": "south african jazz"
+  },
+  {
+    "Id": 755,
+    "Name": "south african pop"
+  },
+  {
+    "Id": 756,
+    "Name": "south african pop dance"
+  },
+  {
+    "Id": 757,
+    "Name": "comedy rap"
+  },
+  {
+    "Id": 758,
+    "Name": "electrofox"
+  },
+  {
+    "Id": 759,
+    "Name": "nu disco"
+  },
+  {
+    "Id": 760,
+    "Name": "chicago house"
+  },
+  {
+    "Id": 761,
+    "Name": "reggae"
+  },
+  {
+    "Id": 762,
+    "Name": "axe"
+  },
+  {
+    "Id": 763,
+    "Name": "pagode"
+  },
+  {
+    "Id": 764,
+    "Name": "sertanejo"
+  },
+  {
+    "Id": 765,
+    "Name": "trap venezolano"
+  },
+  {
+    "Id": 766,
+    "Name": "venezuelan hip hop"
+  },
+  {
+    "Id": 767,
+    "Name": "norwegian hip hop"
+  },
+  {
+    "Id": 768,
+    "Name": "french indie pop"
+  },
+  {
+    "Id": 769,
+    "Name": "french rock"
+  },
+  {
+    "Id": 770,
+    "Name": "swiss pop"
+  },
+  {
+    "Id": 771,
+    "Name": "pinoy hip hop"
+  },
+  {
+    "Id": 772,
+    "Name": "deep tech house"
+  },
+  {
+    "Id": 773,
+    "Name": "indie electropop"
+  },
+  {
+    "Id": 774,
+    "Name": "minimal melodic techno"
+  },
+  {
+    "Id": 775,
+    "Name": "dutch tech house"
+  },
+  {
+    "Id": 776,
+    "Name": "minimal techno"
+  },
+  {
+    "Id": 777,
+    "Name": "progressive trance house"
+  },
+  {
+    "Id": 778,
+    "Name": "utah indie"
+  },
+  {
+    "Id": 779,
+    "Name": "transpop"
+  },
+  {
+    "Id": 780,
+    "Name": "minnesota hip hop"
+  },
+  {
+    "Id": 781,
+    "Name": "melodic techno"
+  },
+  {
+    "Id": 782,
+    "Name": "swiss house"
+  },
+  {
+    "Id": 783,
+    "Name": "norwegian pop"
+  },
+  {
+    "Id": 784,
+    "Name": "canadian house"
+  },
+  {
+    "Id": 785,
+    "Name": "chutney"
+  },
+  {
+    "Id": 786,
+    "Name": "cypriot hip hop"
+  },
+  {
+    "Id": 787,
+    "Name": "uk drill"
+  },
+  {
+    "Id": 788,
+    "Name": "finnish pop"
+  },
+  {
+    "Id": 789,
+    "Name": "finnish hard rock"
+  },
+  {
+    "Id": 790,
+    "Name": "texas latin rap"
+  },
+  {
+    "Id": 791,
+    "Name": "bounce"
+  },
+  {
+    "Id": 792,
+    "Name": "bedroom pop"
+  },
+  {
+    "Id": 793,
+    "Name": "bedroom r&b"
+  },
+  {
+    "Id": 794,
+    "Name": "jamaican hip hop"
+  },
+  {
+    "Id": 795,
+    "Name": "pinoy edm"
+  },
+  {
+    "Id": 796,
+    "Name": "korean electronic"
+  },
+  {
+    "Id": 797,
+    "Name": "rap politico"
+  },
+  {
+    "Id": 798,
+    "Name": "rap underground espanol"
+  },
+  {
+    "Id": 799,
+    "Name": "mexican hip hop"
+  },
+  {
+    "Id": 800,
+    "Name": "rap femenino mexicano"
+  },
+  {
+    "Id": 801,
+    "Name": "boom bap espanol"
+  },
+  {
+    "Id": 802,
+    "Name": "spanish punk"
+  },
+  {
+    "Id": 803,
+    "Name": "swedish indie pop"
+  },
+  {
+    "Id": 804,
+    "Name": "nordic house"
+  },
+  {
+    "Id": 805,
+    "Name": "russelater"
+  },
+  {
+    "Id": 806,
+    "Name": "french shoegaze"
+  },
+  {
+    "Id": 807,
+    "Name": "french synthpop"
+  },
+  {
+    "Id": 808,
+    "Name": "social media pop"
+  },
+  {
+    "Id": 809,
+    "Name": "basshall"
+  },
+  {
+    "Id": 810,
+    "Name": "lithuanian electronic"
+  },
+  {
+    "Id": 811,
+    "Name": "partyschlager"
+  },
+  {
+    "Id": 812,
+    "Name": "halifax indie"
+  },
+  {
+    "Id": 813,
+    "Name": "traphall"
+  },
+  {
+    "Id": 814,
+    "Name": "russian pop"
+  },
+  {
+    "Id": 815,
+    "Name": "lo-fi chill"
+  },
+  {
+    "Id": 816,
+    "Name": "sad lo-fi"
+  },
+  {
+    "Id": 817,
+    "Name": "lo-fi cover"
+  },
+  {
+    "Id": 818,
+    "Name": "lo-fi latino"
+  },
+  {
+    "Id": 819,
+    "Name": "lo-fi product"
+  },
+  {
+    "Id": 820,
+    "Name": "covertronica"
+  },
+  {
+    "Id": 821,
+    "Name": "shimmer pop"
+  },
+  {
+    "Id": 822,
+    "Name": "brooklyn indie"
+  },
+  {
+    "Id": 823,
+    "Name": "chill r&b"
+  },
+  {
+    "Id": 824,
+    "Name": "turkish deep house"
+  },
+  {
+    "Id": 825,
+    "Name": "turkish edm"
+  },
+  {
+    "Id": 826,
+    "Name": "manchester hip hop"
+  },
+  {
+    "Id": 827,
+    "Name": "sheffield indie"
+  },
+  {
+    "Id": 828,
+    "Name": "ottawa rap"
+  },
+  {
+    "Id": 829,
+    "Name": "flamenco fusion"
+  },
+  {
+    "Id": 830,
+    "Name": "rock andaluz"
+  },
+  {
+    "Id": 831,
+    "Name": "roots reggae"
+  },
+  {
+    "Id": 832,
+    "Name": "virgin islands reggae"
+  },
+  {
+    "Id": 833,
+    "Name": "deep talent show"
+  },
+  {
+    "Id": 834,
+    "Name": "acid techno"
+  },
+  {
+    "Id": 835,
+    "Name": "swiss techno"
+  },
+  {
+    "Id": 836,
+    "Name": "high-tech minimal"
+  },
+  {
+    "Id": 837,
+    "Name": "raw techno"
+  },
+  {
+    "Id": 838,
+    "Name": "spanish techno"
+  },
+  {
+    "Id": 839,
+    "Name": "funky tech house"
+  },
+  {
+    "Id": 840,
+    "Name": "hungarian techno"
+  },
+  {
+    "Id": 841,
+    "Name": "deep minimal techno"
+  },
+  {
+    "Id": 842,
+    "Name": "german tech house"
+  },
+  {
+    "Id": 843,
+    "Name": "techno"
+  },
+  {
+    "Id": 844,
+    "Name": "psytech"
+  },
+  {
+    "Id": 845,
+    "Name": "brazilian techno"
+  },
+  {
+    "Id": 846,
+    "Name": "frankfurt electronic"
+  },
+  {
+    "Id": 847,
+    "Name": "schranz"
+  },
+  {
+    "Id": 848,
+    "Name": "modern reggae"
+  },
+  {
+    "Id": 849,
+    "Name": "afro r&b"
+  },
+  {
+    "Id": 850,
+    "Name": "alte"
+  },
+  {
+    "Id": 851,
+    "Name": "south african house"
+  },
+  {
+    "Id": 852,
+    "Name": "sacramento hip hop"
+  },
+  {
+    "Id": 853,
+    "Name": "bboy"
+  },
+  {
+    "Id": 854,
+    "Name": "instrumental funk"
+  },
+  {
+    "Id": 855,
+    "Name": "danish hip hop"
+  },
+  {
+    "Id": 856,
+    "Name": "dakke dak"
+  },
+  {
+    "Id": 857,
+    "Name": "crust punk"
+  },
+  {
+    "Id": 858,
+    "Name": "progressive uplifting trance"
+  },
+  {
+    "Id": 859,
+    "Name": "didgeridoo"
+  },
+  {
+    "Id": 860,
+    "Name": "dream pop"
+  },
+  {
+    "Id": 861,
+    "Name": "swedish dancehall"
+  },
+  {
+    "Id": 862,
+    "Name": "japanese old school hip hop"
+  },
+  {
+    "Id": 863,
+    "Name": "classic dubstep"
+  },
+  {
+    "Id": 864,
+    "Name": "argentine indie"
+  },
+  {
+    "Id": 865,
+    "Name": "boom bap"
+  },
+  {
+    "Id": 866,
+    "Name": "buffalo hip hop"
+  },
+  {
+    "Id": 867,
+    "Name": "upstate ny rap"
+  },
+  {
+    "Id": 868,
+    "Name": "deep big room"
+  },
+  {
+    "Id": 869,
+    "Name": "canadian electropop"
+  },
+  {
+    "Id": 870,
+    "Name": "singaporean electronic"
+  },
+  {
+    "Id": 871,
+    "Name": "belarusian electronic"
+  },
+  {
+    "Id": 872,
+    "Name": "chill house"
+  },
+  {
+    "Id": 873,
+    "Name": "italian hip hop"
+  },
+  {
+    "Id": 874,
+    "Name": "trap italiana"
+  },
+  {
+    "Id": 875,
+    "Name": "italian indie pop"
+  },
+  {
+    "Id": 876,
+    "Name": "rap napoletano"
+  },
+  {
+    "Id": 877,
+    "Name": "rhode island rap"
+  },
+  {
+    "Id": 878,
+    "Name": "bubblegrunge"
+  },
+  {
+    "Id": 879,
+    "Name": "trap mexicano"
+  },
+  {
+    "Id": 880,
+    "Name": "sudanese hip hop"
+  },
+  {
+    "Id": 881,
+    "Name": "sudanese pop"
+  },
+  {
+    "Id": 882,
+    "Name": "experimental pop"
+  },
+  {
+    "Id": 883,
+    "Name": "indie surf"
+  },
+  {
+    "Id": 884,
+    "Name": "ccm"
+  },
+  {
+    "Id": 885,
+    "Name": "christian music"
+  },
+  {
+    "Id": 886,
+    "Name": "palm desert scene"
+  },
+  {
+    "Id": 887,
+    "Name": "stoner metal"
+  },
+  {
+    "Id": 888,
+    "Name": "pacific islands pop"
+  },
+  {
+    "Id": 889,
+    "Name": "polynesian hip hop"
+  },
+  {
+    "Id": 890,
+    "Name": "german pop rock"
+  },
+  {
+    "Id": 891,
+    "Name": "deep r&b"
+  },
+  {
+    "Id": 892,
+    "Name": "hopebeat"
+  },
+  {
+    "Id": 893,
+    "Name": "auckland indie"
+  },
+  {
+    "Id": 894,
+    "Name": "chamber pop"
+  },
+  {
+    "Id": 895,
+    "Name": "swedish alternative rock"
+  },
+  {
+    "Id": 896,
+    "Name": "british indie rock"
+  },
+  {
+    "Id": 897,
+    "Name": "cologne indie"
+  },
+  {
+    "Id": 898,
+    "Name": "german alternative rap"
+  },
+  {
+    "Id": 899,
+    "Name": "german indie"
+  },
+  {
+    "Id": 900,
+    "Name": "boom bap brasileiro"
+  },
+  {
+    "Id": 901,
+    "Name": "brazilian hip hop"
+  },
+  {
+    "Id": 902,
+    "Name": "brazilian rock"
+  },
+  {
+    "Id": 903,
+    "Name": "rap nacional antigo"
+  },
+  {
+    "Id": 904,
+    "Name": "afrofuturismo brasileiro"
+  },
+  {
+    "Id": 905,
+    "Name": "indie curitibano"
+  },
+  {
+    "Id": 906,
+    "Name": "pop lgbtq+ brasileira"
+  },
+  {
+    "Id": 907,
+    "Name": "r&b brasileiro"
+  },
+  {
+    "Id": 908,
+    "Name": "rap feminino nacional"
+  },
+  {
+    "Id": 909,
+    "Name": "latin funk"
+  },
+  {
+    "Id": 910,
+    "Name": "dutch indie"
+  },
+  {
+    "Id": 911,
+    "Name": "dutch indie rock"
+  },
+  {
+    "Id": 912,
+    "Name": "j-rap"
+  },
+  {
+    "Id": 913,
+    "Name": "ambient pop"
+  },
+  {
+    "Id": 914,
+    "Name": "el paso indie"
+  },
+  {
+    "Id": 915,
+    "Name": "dub"
+  },
+  {
+    "Id": 916,
+    "Name": "lovers rock"
+  },
+  {
+    "Id": 917,
+    "Name": "rocksteady"
+  },
+  {
+    "Id": 918,
+    "Name": "early reggae"
+  },
+  {
+    "Id": 919,
+    "Name": "jamaican ska"
+  },
+  {
+    "Id": 920,
+    "Name": "rhythm and blues"
+  },
+  {
+    "Id": 921,
+    "Name": "calypso"
+  },
+  {
+    "Id": 922,
+    "Name": "uk dub"
+  },
+  {
+    "Id": 923,
+    "Name": "vintage reggae"
+  },
+  {
+    "Id": 924,
+    "Name": "uk reggae"
+  },
+  {
+    "Id": 925,
+    "Name": "classic danish pop"
+  },
+  {
+    "Id": 926,
+    "Name": "deep ragga"
+  },
+  {
+    "Id": 927,
+    "Name": "mento"
+  },
+  {
+    "Id": 928,
+    "Name": "oi"
+  },
+  {
+    "Id": 929,
+    "Name": "ska jazz"
+  },
+  {
+    "Id": 930,
+    "Name": "african reggae"
+  },
+  {
+    "Id": 931,
+    "Name": "afrobeat"
+  },
+  {
+    "Id": 932,
+    "Name": "ethio-jazz"
+  },
+  {
+    "Id": 933,
+    "Name": "reggae cover"
+  },
+  {
+    "Id": 934,
+    "Name": "dub poetry"
+  },
+  {
+    "Id": 935,
+    "Name": "nu jazz"
+  },
+  {
+    "Id": 936,
+    "Name": "dub product"
+  },
+  {
+    "Id": 937,
+    "Name": "funana"
+  },
+  {
+    "Id": 938,
+    "Name": "canadian pop punk"
+  },
+  {
+    "Id": 939,
+    "Name": "canadian punk"
+  },
+  {
+    "Id": 940,
+    "Name": "welsh rock"
+  },
+  {
+    "Id": 941,
+    "Name": "cornwall indie"
+  },
+  {
+    "Id": 942,
+    "Name": "nu gaze"
+  },
+  {
+    "Id": 943,
+    "Name": "reading indie"
+  },
+  {
+    "Id": 944,
+    "Name": "finnish alternative rock"
+  },
+  {
+    "Id": 945,
+    "Name": "alabama indie"
+  },
+  {
+    "Id": 946,
+    "Name": "riot grrrl"
+  },
+  {
+    "Id": 947,
+    "Name": "nashville indie"
+  },
+  {
+    "Id": 948,
+    "Name": "danish alternative rock"
+  },
+  {
+    "Id": 949,
+    "Name": "danish rock"
+  },
+  {
+    "Id": 950,
+    "Name": "modern dream pop"
+  },
+  {
+    "Id": 951,
+    "Name": "northern irish indie"
+  },
+  {
+    "Id": 952,
+    "Name": "modern hard rock"
+  },
+  {
+    "Id": 953,
+    "Name": "english indie rock"
+  },
+  {
+    "Id": 954,
+    "Name": "liverpool indie"
+  },
+  {
+    "Id": 955,
+    "Name": "rochester ny indie"
+  },
+  {
+    "Id": 956,
+    "Name": "modern salsa"
+  },
+  {
+    "Id": 957,
+    "Name": "musica pitiusa"
+  },
+  {
+    "Id": 958,
+    "Name": "celtic metal"
+  },
+  {
+    "Id": 959,
+    "Name": "medieval rock"
+  },
+  {
+    "Id": 960,
+    "Name": "spanish folk metal"
+  },
+  {
+    "Id": 961,
+    "Name": "spanish metal"
+  },
+  {
+    "Id": 962,
+    "Name": "rumba catalana"
+  },
+  {
+    "Id": 963,
+    "Name": "pop virale italiano"
+  },
+  {
+    "Id": 964,
+    "Name": "pop romantico"
+  },
+  {
+    "Id": 965,
+    "Name": "punk urbano"
+  },
+  {
+    "Id": 966,
+    "Name": "italian pop rock"
+  },
+  {
+    "Id": 967,
+    "Name": "bolero"
+  },
+  {
+    "Id": 968,
+    "Name": "ranchera"
+  },
+  {
+    "Id": 969,
+    "Name": "cumbia chilena"
+  },
+  {
+    "Id": 970,
+    "Name": "cumbia villera"
+  },
+  {
+    "Id": 971,
+    "Name": "galician rock"
+  },
+  {
+    "Id": 972,
+    "Name": "orquestas de galicia"
+  },
+  {
+    "Id": 973,
+    "Name": "merengue"
+  },
+  {
+    "Id": 974,
+    "Name": "copla"
+  },
+  {
+    "Id": 975,
+    "Name": "cumbia uruguaya"
+  },
+  {
+    "Id": 976,
+    "Name": "mpb"
+  },
+  {
+    "Id": 977,
+    "Name": "samba reggae"
+  },
+  {
+    "Id": 978,
+    "Name": "cancion melodica"
+  },
+  {
+    "Id": 979,
+    "Name": "nueva cancion"
+  },
+  {
+    "Id": 980,
+    "Name": "electro bailando"
+  },
+  {
+    "Id": 981,
+    "Name": "spanish invasion"
+  },
+  {
+    "Id": 982,
+    "Name": "indie extremena"
+  },
+  {
+    "Id": 983,
+    "Name": "euskal rock"
+  },
+  {
+    "Id": 984,
+    "Name": "ska espanol"
+  },
+  {
+    "Id": 985,
+    "Name": "dominican pop"
+  },
+  {
+    "Id": 986,
+    "Name": "makina"
+  },
+  {
+    "Id": 987,
+    "Name": "french pop"
+  },
+  {
+    "Id": 988,
+    "Name": "rap marseille"
+  },
+  {
+    "Id": 989,
+    "Name": "euskal musica"
+  },
+  {
+    "Id": 990,
+    "Name": "pop chileno"
+  },
+  {
+    "Id": 991,
+    "Name": "grupera"
+  },
+  {
+    "Id": 992,
+    "Name": "trap dominicano"
+  },
+  {
+    "Id": 993,
+    "Name": "tontipop"
+  },
+  {
+    "Id": 994,
+    "Name": "granada indie"
+  },
+  {
+    "Id": 995,
+    "Name": "vallenato"
+  },
+  {
+    "Id": 996,
+    "Name": "mariachi"
+  },
+  {
+    "Id": 997,
+    "Name": "musica mexicana"
+  },
+  {
+    "Id": 998,
+    "Name": "spanish modern rock"
+  },
+  {
+    "Id": 999,
+    "Name": "alternative pop rock"
+  },
+  {
+    "Id": 1000,
+    "Name": "gen z singer-songwriter"
+  },
+  {
+    "Id": 1001,
+    "Name": "stutter house"
+  },
+  {
+    "Id": 1002,
+    "Name": "indie r&b"
+  },
+  {
+    "Id": 1003,
+    "Name": "desi pop"
+  },
+  {
+    "Id": 1004,
+    "Name": "hindi hip hop"
+  },
+  {
+    "Id": 1005,
+    "Name": "kentucky roots"
+  },
+  {
+    "Id": 1006,
+    "Name": "nashville singer-songwriter"
+  },
+  {
+    "Id": 1007,
+    "Name": "new americana"
+  },
+  {
+    "Id": 1008,
+    "Name": "talentschau"
+  },
+  {
+    "Id": 1009,
+    "Name": "belgian rock"
+  },
+  {
+    "Id": 1010,
+    "Name": "belgian singer-songwriter"
+  },
+  {
+    "Id": 1011,
+    "Name": "scottish singer-songwriter"
+  },
+  {
+    "Id": 1012,
+    "Name": "contemporary vocal jazz"
+  },
+  {
+    "Id": 1013,
+    "Name": "jazz pop"
+  },
+  {
+    "Id": 1014,
+    "Name": "celtic"
+  },
+  {
+    "Id": 1015,
+    "Name": "middle earth"
+  },
+  {
+    "Id": 1016,
+    "Name": "operatic pop"
+  },
+  {
+    "Id": 1017,
+    "Name": "finnish dance pop"
+  },
+  {
+    "Id": 1018,
+    "Name": "arab electronic"
+  },
+  {
+    "Id": 1019,
+    "Name": "corrido"
+  },
+  {
+    "Id": 1020,
+    "Name": "sad sierreno"
+  },
+  {
+    "Id": 1021,
+    "Name": "corridos tumbados"
+  },
+  {
+    "Id": 1022,
+    "Name": "sierreno"
+  },
+  {
+    "Id": 1023,
+    "Name": "rkt"
+  },
+  {
+    "Id": 1024,
+    "Name": "funk bh"
+  },
+  {
+    "Id": 1025,
+    "Name": "funk mandelao"
+  },
+  {
+    "Id": 1026,
+    "Name": "phonk brasileiro"
+  },
+  {
+    "Id": 1027,
+    "Name": "rave funk"
+  },
+  {
+    "Id": 1028,
+    "Name": "rap maroc"
+  },
+  {
+    "Id": 1029,
+    "Name": "cumbia 420"
+  },
+  {
+    "Id": 1030,
+    "Name": "previa"
+  },
+  {
+    "Id": 1031,
+    "Name": "comedy rock"
+  },
+  {
+    "Id": 1032,
+    "Name": "albanian hip hop"
+  },
+  {
+    "Id": 1033,
+    "Name": "trap colombiano"
+  },
+  {
+    "Id": 1034,
+    "Name": "musica catalana"
+  },
+  {
+    "Id": 1035,
+    "Name": "jazz catala"
+  },
+  {
+    "Id": 1036,
+    "Name": "ambient house"
+  },
+  {
+    "Id": 1037,
+    "Name": "latin tech house"
+  },
+  {
+    "Id": 1038,
+    "Name": "experimental hip hop"
+  },
+  {
+    "Id": 1039,
+    "Name": "chopped and screwed"
+  },
+  {
+    "Id": 1040,
+    "Name": "slowed and reverb"
+  },
+  {
+    "Id": 1041,
+    "Name": "phonk"
+  },
+  {
+    "Id": 1042,
+    "Name": "afro drill"
+  },
+  {
+    "Id": 1043,
+    "Name": "gym phonk"
+  },
+  {
+    "Id": 1044,
+    "Name": "russian trap metal"
+  },
+  {
+    "Id": 1045,
+    "Name": "scream rap"
+  },
+  {
+    "Id": 1046,
+    "Name": "melbourne hip hop"
+  },
+  {
+    "Id": 1047,
+    "Name": "korean trap"
+  },
+  {
+    "Id": 1048,
+    "Name": "hardstyle"
+  },
+  {
+    "Id": 1049,
+    "Name": "ukrainian edm"
+  },
+  {
+    "Id": 1050,
+    "Name": "ukrainian electronic"
+  },
+  {
+    "Id": 1051,
+    "Name": "charva"
+  },
+  {
+    "Id": 1052,
+    "Name": "nottingham hip hop"
+  },
+  {
+    "Id": 1053,
+    "Name": "brazilian tech house"
+  },
+  {
+    "Id": 1054,
+    "Name": "portuguese pop"
+  },
+  {
+    "Id": 1055,
+    "Name": "pop quebecois"
+  },
+  {
+    "Id": 1056,
+    "Name": "samurai trap"
+  },
+  {
+    "Id": 1057,
+    "Name": "swedish eurodance"
+  },
+  {
+    "Id": 1058,
+    "Name": "nova musica pernambucana"
+  },
+  {
+    "Id": 1059,
+    "Name": "lithuanian edm"
+  },
+  {
+    "Id": 1060,
+    "Name": "chinese electropop"
+  }
+]
