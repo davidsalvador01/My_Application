@@ -1,18 +1,15 @@
 package com.example.myapplication;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,9 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.db.DbHelper;
-import com.example.myapplication.db.DbSongs;
 import com.example.myapplication.db.DbUsers;
-import com.example.myapplication.typedefs.Song;
 import com.example.myapplication.typedefs.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -34,25 +29,29 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.fitness.FitnessOptions;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.tasks.Task;
-import com.spotify.android.appremote.api.SpotifyAppRemote;
+
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
-public class MainActivity2 extends AppCompatActivity {
+
+public class LoginActivity extends AppCompatActivity {
     private FitnessOptions fitnessOptions;
     private GoogleSignInAccount account;
     private static final int MY_PERMISSIONS_REQUEST = 1;
     private boolean connected_to_fit = false;
+    private String id_user;
+    private String location;
+    private String[] choiceItems = {"Outdoor", "Indoor"};
+    private int selectedOption;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_login);
 
         Resources resources = this.getResources();
         InputStream inputStreamSongs = resources.openRawResource(R.raw.songs);
@@ -61,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
         InputStream inputStreamGenres = resources.openRawResource(R.raw.genres);
         InputStream inputStreamSongGenres = resources.openRawResource(R.raw.song_genres);
 
-        DbHelper dbHelper = new DbHelper(MainActivity2.this, inputStreamSongs,
+        DbHelper dbHelper = new DbHelper(LoginActivity.this, inputStreamSongs,
                 inputStreamArtists, inputStreamSongArtists,
                 inputStreamGenres, inputStreamSongGenres);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -70,59 +69,37 @@ public class MainActivity2 extends AppCompatActivity {
         } else {
             Log.d("DB", "Ha habido un error al crear la base de datos");
         }
+        if (db != null && db.isOpen()) {
+            Log.d("DB", "Base de datos abierta");
+        }
 
+        db.releaseReference();
+        db.close();
+        dbHelper.close();
+        Log.d("DB", "Cierro");
 
-
-
-    }
-
-    /*public void connect_google_fit(View view) {
-        // checkGoogleFitPermission();
-        // connected_to_fit = true;
-        // Toast.makeText(getApplicationContext(), "Conectado correctamente a Google Fit", Toast.LENGTH_SHORT).show();
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .requestProfile()
-                .build();
-
-
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        //startActivityForResult(signInIntent, 000000);
-
-
-        connected_to_fit = true;
+        if (db != null && !db.isOpen()) {
+            Log.d("DB", "Base de datos cerrada");
+        }
     }
 
 
-    ActivityResultLauncher<Intent> connect = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-
-
-                    // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-                    if (result.getResultCode() == 000000) {
-                        // The Task returned from this call is always completed, no need to attach
-                        // a listener.
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
-                        handleSignInResult(task);
-                    }
-                }
-            });*/
     public void connect_google_fit(View view) {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .requestProfile()
-                .build();
+        if(connected_to_fit == false){
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .requestProfile()
+                    .build();
 
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
 
-        connect.launch(signInIntent);
+            connect.launch(signInIntent);
+        } else {
+            Toast.makeText(getApplicationContext(), " Ya estás conectado a Google Fit " ,
+                    Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     ActivityResultLauncher<Intent> connect = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -154,7 +131,10 @@ public class MainActivity2 extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             // Signed in successfully, show authenticated UI.
             //updateUI(account);
+            chooseLocation();
+            Log.d("LOCATION", ""+ location);
             connected_to_fit = true;
+
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -207,7 +187,12 @@ public class MainActivity2 extends AppCompatActivity {
             if (id != null){
                 dbUsers.setUser(id, name, email, photoUrl);
             }
+            id_user = id;
         }
+        else {
+            id_user = u.getId();
+        }
+        dbUsers.close();
     }
 
     public void checkGoogleFitPermission() {
@@ -232,14 +217,14 @@ public class MainActivity2 extends AppCompatActivity {
 
         if (!GoogleSignIn.hasPermissions(account, fitnessOptions)) {
             GoogleSignIn.requestPermissions(
-                    MainActivity2.this,
+                    LoginActivity.this,
                     MY_PERMISSIONS_REQUEST,
                     account,
                     fitnessOptions);
         }
     }
     private GoogleSignInAccount getGoogleAccount() {
-        return GoogleSignIn.getAccountForExtension(MainActivity2.this, fitnessOptions);
+        return GoogleSignIn.getAccountForExtension(LoginActivity.this, fitnessOptions);
     }
 
     public void connect_spotify(View view) {
@@ -247,10 +232,41 @@ public class MainActivity2 extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Debes conectarte antes a Google Fit", Toast.LENGTH_SHORT).show();
         }
         else {
+            if(location == null){
+                location = choiceItems[selectedOption];
+            }
             Intent intent = new Intent(this, MainActivity.class);
-
+            intent.putExtra("source", "LoginActivity");
+            intent.putExtra("id_user", id_user);
+            intent.putExtra("location", location);
             startActivity(intent);
         }
     }
+
+    private void chooseLocation(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        selectedOption = 0;
+
+        builder.setTitle("Choose location")
+                .setSingleChoiceItems(choiceItems, selectedOption, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Almacena la opción seleccionada
+                        selectedOption = which;
+                        Log.d("click", " "+ selectedOption);
+                    }
+                })
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        location = choiceItems[selectedOption];
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
 
 }

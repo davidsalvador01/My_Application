@@ -6,10 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.typedefs.Song;
+
 import com.example.myapplication.typedefs.User;
 
-import java.util.ArrayList;
+
 
 public class DbUsers extends DbHelper{
     private final Context context;
@@ -25,7 +25,9 @@ public class DbUsers extends DbHelper{
         db.execSQL(("INSERT INTO " + TABLE_USERS + " VALUES ('"+ id + "', '"
                         + name + "', '" + email + "', '" + photoUrl +"')"));
 
-
+        db.releaseReference();
+        db.close();
+        dbHelper.close();
     }
 
     public User searchUserByEmail(String email) {
@@ -45,6 +47,10 @@ public class DbUsers extends DbHelper{
                 return user;
             } while(cursorUser.moveToNext());
         }
+        cursorUser.close();
+        db.releaseReference();
+        db.close();
+        dbHelper.close();
         return null;
 
     }

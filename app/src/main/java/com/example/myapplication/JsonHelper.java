@@ -43,8 +43,9 @@ public class JsonHelper extends Activity {
                 int duration = jsonObject.getInt("Duration_ms");
                 int popularity = jsonObject.getInt("Popularity");
                 int id = jsonObject.getInt("Id");
+                int year = jsonObject.getInt("Release Year");
 
-                Song s = new Song(id, titulo, uri_spotify, tempo, duration, popularity);
+                Song s = new Song(id, titulo, uri_spotify, tempo, duration, popularity, year);
                 canciones.add(s);
 
             }
@@ -108,7 +109,6 @@ public class JsonHelper extends Activity {
             // Recorrer los objetos del JSONArray
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                 // Obtener los valores de las claves del objeto JSON
                 int id_song = jsonObject.getInt("Id_song");
                 int id_artist = jsonObject.getInt("Id_artist");

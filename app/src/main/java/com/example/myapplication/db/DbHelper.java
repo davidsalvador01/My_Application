@@ -27,6 +27,10 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String TABLE_SONGS_GENRES = "t_songs_genres";
     public static final String TABLE_RATINGS = "t_ratings";
     public static final String TABLE_USERS = "t_users";
+    public static final String TABLE_SESSIONS = "t_sessions";
+    public static final String TABLE_SONGS_SESSIONS = "t_songs_sessions";
+    public static final String TABLE_BPM_MEASUREMENT = "t_bpm_measurement";
+
 
 
 
@@ -56,11 +60,12 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_SONGS + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "titulo TEXT NOT NULL," +
+                "title TEXT NOT NULL," +
                 "uri_spotify TEXT NOT NULL," +
                 "tempo FLOAT," +
                 "duration_ms INTEGER," +
-                "popularity INTEGER)");
+                "popularity INTEGER," +
+                "release_year INTEGER)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_ARTISTS + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -81,7 +86,7 @@ public class DbHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_RATINGS + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "rating INTEGER,"+
-                "id_user INTEGER REFERENCES " + TABLE_USERS + ","+
+                "id_user TEXT REFERENCES " + TABLE_USERS + ","+
                 "id_song INTEGER REFERENCES " + TABLE_SONGS + ")");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_USERS + "(" +
@@ -90,18 +95,36 @@ public class DbHelper extends SQLiteOpenHelper {
                 "email TEXT," +
                 "photo_url TEXT)");
 
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_SESSIONS + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "id_user TEXT REFERENCES " + TABLE_USERS + ","+
+                "location TEXT," +
+                "date TEXT," +
+                "init_time TEXT," +
+                "end_time TEXT)");
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_SONGS_SESSIONS + "(" +
+                "id_song INTEGER REFERENCES " + TABLE_SONGS + ","+
+                "id_session INTEGER REFERENCES " + TABLE_SESSIONS + ")");
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_BPM_MEASUREMENT + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "id_session INTEGER REFERENCES " + TABLE_SESSIONS + ","+
+                "time TEXT," +
+                "heart_rate Float)");
+
         insert_songs(sqLiteDatabase);
         insert_artists(sqLiteDatabase);
         insert_song_artists(sqLiteDatabase);
         insert_genres(sqLiteDatabase);
         insert_song_genres(sqLiteDatabase);
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_SONGS);
         onCreate(sqLiteDatabase);
+
     }
 
     private void insert_songs(SQLiteDatabase sqLiteDatabase){
@@ -111,15 +134,15 @@ public class DbHelper extends SQLiteOpenHelper {
         if (songs != null) {
             for (Song s : songs) {
                 String title;
-                if (s.getTitulo().contains("'")){
-                    title = s.getTitulo().replace("'", "''");
+                if (s.getTitle().contains("'")){
+                    title = s.getTitle().replace("'", "''");
                 } else {
-                    title = s.getTitulo();
+                    title = s.getTitle();
                 }
                 String sql = "INSERT INTO t_songs VALUES (" + s.getId() + ", "
                         + "'" + title + "', '" + s.getUri_spotify()
                         + "', " + s.getTempo() + ", " + s.getDuration_ms() + ", "
-                        + s.getPopularity() + ")";
+                        + s.getPopularity() + ", " + s.getRelease_year() +")";
                 sqLiteDatabase.execSQL(sql);
             }
         }
@@ -176,7 +199,6 @@ public class DbHelper extends SQLiteOpenHelper {
                 sqLiteDatabase.execSQL(sql);
             }
         }
-
     }
 
     private void insert_song_genres(SQLiteDatabase sqLiteDatabase){

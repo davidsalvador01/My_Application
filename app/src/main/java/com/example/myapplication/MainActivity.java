@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,13 +17,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.myapplication.db.DbBpmMeasurement;
+import com.example.myapplication.db.DbRatings;
+import com.example.myapplication.db.DbSessions;
 import com.example.myapplication.db.DbSongs;
 import com.example.myapplication.typedefs.Song;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -36,6 +39,8 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.spotify.android.appremote.api.ConnectionParams;
 import com.spotify.android.appremote.api.Connector;
 import com.spotify.android.appremote.api.SpotifyAppRemote;
@@ -53,7 +58,6 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -62,7 +66,6 @@ import java.util.concurrent.TimeUnit;
 
 
 public class MainActivity extends AppCompatActivity {
-
     private static final int REQUEST_CODE = 1337;
 
     private static final String CLIENT_ID = "888de3e282484572a3cab7ccc088d1f9";
@@ -73,6 +76,15 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean inicio = true;
     private boolean reproduciendo = true;
+    private boolean like = false;
+    private String id_user;
+    private int id_session;
+    private String location;
+    private int dailyTotalSteps;
+    private float totalCalories;
+    private String source = "";
+    private String bpmMode = "";
+
 
     ArrayList<String> selectedItems = new ArrayList();
 
@@ -88,30 +100,75 @@ public class MainActivity extends AppCompatActivity {
 
     private FitnessOptions fitnessOptions;
 
+    private boolean selectedPopularity = false;
+    private boolean selectedRating = false;
+    private boolean selectedContextRecommend = false;
+    private ArrayList<String> selectedGenres = new ArrayList<>();
+    private ArrayList<String> selectedDecades = new ArrayList<>();
+
+
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         fitnessOptions = FitnessOptions.builder()
                 .addDataType(DataType.TYPE_HEART_RATE_BPM, FitnessOptions.ACCESS_READ)
                 .addDataType(DataType.AGGREGATE_CALORIES_EXPENDED, FitnessOptions.ACCESS_READ)
+                .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
                 .build();
 
+        Intent intent = getIntent();
+        source = intent.getStringExtra("source");
+        Log.d("SOURCE", ""+ source);
+        if (source.equals("LoginActivity")){
+            Log.d("SOURCE LoginActivity", ""+ source);
+            id_user = intent.getStringExtra("id_user");
+            location = intent.getStringExtra("location");
 
-        DbSongs dbSongs = new DbSongs(this);
-        songs = dbSongs.getSongs();
-        Collections.shuffle(songs);
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            Log.d("TIME", ""+ currentDateTime);
+            String[] parts = currentDateTime.toString().split("T");
 
+            String date = parts[0];
+            String time = parts[1];
 
-        /* ActivityResultLauncher<Intent> mLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        MainActivity.this.onActivityResult(REQUEST_CODE, result.getResultCode(), result.getData());
-                    }
-                });*/
+            DbSessions dbSessions = new DbSessions(this);
+            id_session = dbSessions.setSession(date, id_user, location, time, "");
+
+            DbSongs dbSongs = new DbSongs(this);
+            songs = dbSongs.getSongs();
+            Collections.shuffle(songs);
+            dbSongs.close();
+        }
+
+        if(source.equals("RecommenderActivity")){
+            id_user = intent.getStringExtra("id_user");
+            location = intent.getStringExtra("location");
+            bpmMode = intent.getStringExtra("bpmMode");
+            if (bpmMode.contains("Desactivar")){
+                bpm_actual=-1;
+                bpmMode = "desactivar_bpms";
+            }
+            if (bpmMode.contains("Invertir")){
+                bpmMode = "invertir_bpms";
+            }
+            selectedPopularity = intent.getBooleanExtra("selectedPopularity", false);
+            selectedRating = intent.getBooleanExtra("selectedRating", false);
+            selectedContextRecommend = intent.getBooleanExtra("selectedContextRecommend", false);
+            selectedGenres = intent.getStringArrayListExtra("selectedGenres");
+            selectedDecades = intent.getStringArrayListExtra("selectedDecades");
+            Log.d("SOURCE RecommenderActivity bpmMode", source+", "+ bpmMode);
+            Log.d("SOURCE RecommenderActivity", ""+ selectedDecades + ", " + selectedGenres +
+            ", " + selectedPopularity + ", " + selectedRating);
+
+            filterAndSortSongs();
+
+        }
 
         startAuthenticationFlow();
 
@@ -124,9 +181,12 @@ public class MainActivity extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        // Coloca aquí el código de la función que quieres ejecutar
-                        readHeartRateData();
-                        Log.d("MainActivity", "Función ejecutada, ha pasado 60 segundos");
+                        if(!bpmMode.equals("desactivar_bpms")){
+                            readHeartRateData();
+                            readStepsCount();
+                            readCalories();
+                            Log.d("MainActivity", "Función ejecutada, ha pasado 60 segundos");
+                        }
                     }
                 });
             }
@@ -134,6 +194,186 @@ public class MainActivity extends AppCompatActivity {
         timer.schedule(task, 0, 60000);
     }
 
+    private float invertBpms(float bpm){
+        float bpm_inv = 0;
+        if (bpm <= 95) {
+            if(bpm < 75) {
+                bpm_inv = bpm + 120;
+            } else {
+                bpm_inv = bpm + 100;
+            }
+        } else if(bpm > 95 && bpm <= 125){
+            bpm_inv = bpm + 31;
+        } else if(bpm > 125 && bpm <= 155){
+            bpm_inv = bpm - 31;
+        } else if(bpm > 155){
+            if(bpm <= 185) {
+                bpm_inv = bpm - 90;
+            } else if(bpm > 185 && bpm < 195) {
+                bpm_inv = bpm - 100;
+            } else {
+                bpm_inv = bpm - 110;
+            }
+        }
+        return bpm_inv;
+    }
+
+    private void getContextRecommendSongs(){
+        float bpm = 0;
+        if (bpmMode.equals("invertir_bpms")){
+            bpm = invertBpms(bpm_actual);
+        } else if(bpmMode.equals("desactivar_bpms")){
+            bpm_actual = -1;
+        } else {
+            bpm = bpm_actual;
+        }
+        DbSongs dbSongs = new DbSongs(this);
+        songs.clear();
+        songs = dbSongs.favoriteSongs();
+        ArrayList<String> arrayListArtists = dbSongs.mostStreamedArtists(location);
+        for (String artist: arrayListArtists) {
+            ArrayList<Song> temp;
+            if(bpm_actual == -1) {
+                temp = dbSongs.getSongsByArtist(artist);
+            } else {
+                temp = dbSongs.getSongsByArtistAndBpm(artist, bpm);
+            }
+            songs.addAll(temp);
+        }
+        ArrayList<String> arrayListGenres = dbSongs.mostStreamedGenres(location);
+        for (String genre: arrayListGenres) {
+            ArrayList<Song> temp;
+            if(bpm_actual == -1) {
+                temp = dbSongs.getSongsByGenre(genre);
+            } else {
+                temp = dbSongs.getSongsByGenreAndBpm(genre, bpm);
+            }
+            songs.addAll(temp);
+        }
+        ArrayList<Integer> arrayListYears = dbSongs.mostStreamedYears(location);
+        for (int year: arrayListYears) {
+            ArrayList<Song> temp;
+            if(bpm_actual == -1) {
+                temp = dbSongs.getSongsByYear(year);
+            } else {
+                temp = dbSongs.getSongsByYearAndBpm(year, bpm);
+            }
+            songs.addAll(temp);
+        }
+        Collections.shuffle(songs);
+        dbSongs.close();
+    }
+
+    private void filterAndSortSongs(){
+        float bpm = 0;
+        if (bpmMode.equals("invertir_bpms")){
+            bpm = invertBpms(bpm_actual);
+        } else if(bpmMode.equals("desactivar_bpms")){
+            bpm_actual = -1;
+        } else {
+            bpm = bpm_actual;
+        }
+        String selectCondition = createSelectGenreDecade(selectedGenres, selectedDecades);
+        DbSongs dbSongs = new DbSongs(this);
+        if(selectedPopularity == true){
+            if(bpm_actual == -1){
+                songs = dbSongs.getSongsByConditionOrderByPopularity(selectCondition);
+            }
+            else {
+                songs = dbSongs.getSongsByConditionAndBpmOrderByPopularity(selectCondition, bpm);
+            }
+        }
+        else if(selectedRating == true){
+            if(bpm_actual == -1){
+                songs = dbSongs.getSongsByConditionOrderByRating(selectCondition);            }
+            else {
+                songs = dbSongs.getSongsByConditionAndBpmOrderByRating(selectCondition, bpm);
+            }
+        } else if(selectedContextRecommend == true) {
+            getContextRecommendSongs();
+        } else {
+            if(bpm_actual == -1){
+                songs = dbSongs.getSongsByCondition(selectCondition);
+            }
+            else {
+                songs = dbSongs.getSongsByConditionAndBpm(selectCondition, bpm);
+            }
+
+            Collections.shuffle(songs);
+        }
+        if(songs.size() == 0) {
+            if(bpm_actual == -1){
+                songs = dbSongs.getSongs();
+            }
+            else {
+                songs = dbSongs.getSongsByBpm(bpm_actual);
+            }
+
+            Collections.shuffle(songs);
+        }
+        dbSongs.close();
+    }
+
+    private String createSelectGenreDecade(ArrayList<String> selectedGenres,
+    ArrayList<String> selectedDecades){
+        String s="";
+        if(selectedGenres.size()>0){
+            for (int index = 0; index < selectedGenres.size(); index++) {
+                String genre = selectedGenres.get(index).toLowerCase();
+                if (index == 0) {
+                    s = s + "g.name='" + genre.toLowerCase() + "'";
+                } else {
+                    s = s+ " OR g.name='"+ genre.toLowerCase() + "'";
+                }
+            }
+        }
+        if(selectedDecades.size()>0){
+            for (int index = 0; index < selectedDecades.size(); index++) {
+                int decade = formatDecade(selectedDecades.get(index));
+                int decade_end = decade + 10;
+                if (index == 0 && s.equals("")) {
+                    s = s + "(s.release_year >="+ decade +" AND s.release_year <="+decade_end+")";
+                } else {
+                    s = s+ " OR (s.release_year >="+ decade +" AND s.release_year <="+decade_end+")";
+                }
+            }
+        }
+        return s;
+    }
+
+    private int formatDecade(String decade){
+        int decada;
+        switch (decade) {
+            case "1950s":
+                decada = 1950;
+                break;
+            case "1960s":
+                decada = 1960;
+                break;
+            case "1970s":
+                decada = 1970;
+                break;
+            case "1980s":
+                decada = 1980;
+                break;
+            case "1990s":
+                decada = 1990;
+                break;
+            case "2000s":
+                decada = 2000;
+                break;
+            case "2010s":
+                decada = 2010;
+                break;
+            case "2020s":
+                decada = 2020;
+                break;
+            default:
+                decada = 2023;
+                break;
+        }
+        return decada;
+    }
 
     @Override
     protected void onStart() {
@@ -148,6 +388,33 @@ public class MainActivity extends AppCompatActivity {
         AuthorizationRequest request = builder.build();
 
         AuthorizationClient.openLoginActivity(this, REQUEST_CODE, request);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == REQUEST_CODE) {
+            AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, intent);
+            switch (response.getType()) {
+                case TOKEN:
+                    mAccessToken = response.getAccessToken();
+                    Log.d("MainActivity", "Access token: " + mAccessToken);
+                    startAppRemoteConnection(mAccessToken);
+                    break;
+                case ERROR:
+                    Log.e("MainActivity", "Auth error: " + response.getError());
+                    // Iniciar una pantalla de error
+                    Intent intent2 = new Intent(this, ErrorActivity.class);
+                    Log.d("Error enviado: ", ""+ response.getError());
+                    intent2.putExtra("error", response.getError());
+                    startActivity(intent2);
+                    finish();
+                    break;
+                default:
+                    Log.d("MainActivity", "Auth result: " + response.getType());
+            }
+        }
     }
     private void startAppRemoteConnection(String accessToken) {
         // Set the connection parameters
@@ -171,11 +438,26 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Throwable throwable) {
-                        Log.e("MainActivity", throwable.getMessage(), throwable);
-
+                        //if(throwable.getClass().toString() == "SpotifyConnectionTerminatedException"){
+                          //  SpotifyAppRemote.connect(this, connectionParams, this);
+                        //}
+                        Log.e("MainActivity, error ", throwable.getClass().toString(), throwable);
+                        Intent intent2 = new Intent(MainActivity.this, ErrorActivity.class);
+                        Log.d("Error enviado: ", ""+ throwable.getMessage());
+                        intent2.putExtra("error", throwable.toString());
+                        startActivity(intent2);
+                        finish();
                         // Something went wrong when attempting to connect! Handle errors here
                     }
                 });
+    }
+
+    public void button_exit(View view){
+        onDestroy();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        System.exit(0);
+        // this.finishAffinity(); -> finaliza toda la app
     }
 
     @Override
@@ -183,29 +465,18 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         mSpotifyAppRemote.getPlayerApi().pause();
         SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        String[] parts = currentDateTime.toString().split("T");
+
+        String time = parts[1];
+        DbSessions dbSessions = new DbSessions(this);
+        dbSessions.updateEndSession(id_session, time);
         setResult(Activity.RESULT_CANCELED);
+
         finish();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-        if (requestCode == REQUEST_CODE) {
-            AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, intent);
-            switch (response.getType()) {
-                case TOKEN:
-                    mAccessToken = response.getAccessToken();
-                    Log.d("MainActivity", "Access token: " + mAccessToken);
-                    startAppRemoteConnection(mAccessToken);
-                    break;
-                case ERROR:
-                    Log.e("MainActivity", "Auth error: " + response.getError());
-                    break;
-                default:
-                    Log.d("MainActivity", "Auth result: " + response.getType());
-            }
-        }
-    }
 
     private void connected() {
         readHeartRateData();
@@ -214,7 +485,9 @@ public class MainActivity extends AppCompatActivity {
             Song song = songs.remove(0);
             track_id_playing = song.getUri_spotify();
             mSpotifyAppRemote.getPlayerApi().play("spotify:track:" + track_id_playing);
-            mSpotifyAppRemote.getPlayerApi().queue("spotify:track:" + songs.remove(0).getUri_spotify());
+            if(!source.equals("RecommenderActivity")){
+                mSpotifyAppRemote.getPlayerApi().queue("spotify:track:" + songs.remove(0).getUri_spotify());
+            }
         }
 
         // Subscribe to PlayerState
@@ -238,14 +511,25 @@ public class MainActivity extends AppCompatActivity {
                             String [] fields = track.uri.split(":");
                             DbSongs dbSongs = new DbSongs(this);
                             Song s = dbSongs.getSongBySpotifyUri(fields[2]);
-                            songs_played.add(0, s);
-                            track_id_playing = s.getUri_spotify();
-                            Log.d("MainActivity", "Ha cambiado la cancion");
-                            mSpotifyAppRemote.getPlayerApi().queue("spotify:track:" + songs.remove(0).getUri_spotify());
+                            Song song_ant = dbSongs.getSongBySpotifyUri(track_id_playing);
+
+                            if (s != null && song_ant != null) {
+                                DbSessions dbSessions = new DbSessions(this);
+                                dbSessions.setSongSession(song_ant.getId(), id_session);
+                                dbSessions.close();
+                                songs_played.add(0, song_ant);
+                                track_id_playing = s.getUri_spotify();
+                                Log.d("MainActivity", "Ha cambiado la cancion");
+                                mSpotifyAppRemote.getPlayerApi().queue("spotify:track:" + songs.remove(0).getUri_spotify());
+                            }
+                            dbSongs.close();
+
                         }
+                        setLikeButton();
                         if (track_id_ant_ejec != ""){
                             track_id_ant_ejec = "";
                         }
+
 
 
                         mSpotifyAppRemote.getImagesApi().getImage(track.imageUri).setResultCallback(new CallResult.ResultCallback<Bitmap>() {
@@ -279,6 +563,8 @@ public class MainActivity extends AppCompatActivity {
             Song song_playing = songs.remove(0);
             track_id_playing = song_playing.getUri_spotify();
             mSpotifyAppRemote.getPlayerApi().play("spotify:track:"+track_id_playing);
+            setLikeButton();
+            dbSongs.close();
         }
         else {
             mSpotifyAppRemote.getPlayerApi().skipNext();
@@ -288,6 +574,7 @@ public class MainActivity extends AppCompatActivity {
             this.reproduciendo = true;
             button_play.setBackgroundResource(R.drawable.pausa);
         }
+
     }
 
     public void button_ant(View view) {
@@ -298,6 +585,8 @@ public class MainActivity extends AppCompatActivity {
             Song song_playing = songs_played.remove(0);
             track_id_playing = song_playing.getUri_spotify();
             mSpotifyAppRemote.getPlayerApi().play("spotify:track:"+song_playing.getUri_spotify());
+            setLikeButton();
+            dbSongs.close();
         }
         else  {
             mSpotifyAppRemote.getPlayerApi().skipPrevious();
@@ -312,25 +601,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void bpm_aleat(View view){
-        TextView textViewBpm = findViewById(R.id.textViewBpm);
-        Random rand = new Random();
-        float numeroAleatorio = rand.nextFloat() * 140.0f + 65.0f;
-
-        update_songs(numeroAleatorio);
-        textViewBpm.setText("Bpms actuales: "+numeroAleatorio);
-
-
-    }
-
     public void update_songs(Float bpm){
         this.bpm_actual = bpm;
+
         songs.clear();
+
         DbSongs dbSongs = new DbSongs(this);
-        songs = dbSongs.getSongsByBpm(bpm);
+        filterAndSortSongs();
+        dbSongs.close();
+
         Collections.shuffle(songs);
-        // int id_json = chooseJson(bpm);
-        // readJSONFromResource(this, id_json);
+        Log.d("Main", "voy a actualizar bpms (heart rate)");
+        setBpmMeasurement();
     }
 
     private void readHeartRateData() {
@@ -343,9 +625,6 @@ public class MainActivity extends AppCompatActivity {
         int currentMinute = currentDateTime.getMinute();
         int currentHour = currentDateTime.getHour();
 
-        // Imprimir el minuto actual
-        System.out.println("Hora actual: " + currentHour+":"+ currentMinute + ", "+
-                (currentDateTime.getYear()+"/"+ currentDateTime.getMonthValue()+"/"+ currentDateTime.getDayOfMonth()));
 
         LocalDate localDate = LocalDate.of(currentDateTime.getYear(), currentDateTime.getMonthValue(), currentDateTime.getDayOfMonth());
         // Crea un objeto ZonedDateTime utilizando la fecha específica y la zona horaria deseada
@@ -396,13 +675,15 @@ public class MainActivity extends AppCompatActivity {
             for (Field field : dp.getDataType().getFields()) {
                 Log.i("TAG","\tField: "+ field.getName() +", Value: "+ dp.getValue(field));
                 TextView textViewBpm = findViewById(R.id.textViewBpm);
-                if (field.getName().equals("average") && !Float.isNaN(dp.getValue(field).asFloat())){
+                if (!bpmMode.equals("desactivar_bpms") && field.getName().equals("average")
+                        && !Float.isNaN(dp.getValue(field).asFloat())){
                     textViewBpm.setText("Bpms actuales " + dp.getValue(field) );
                     bpm_actual = dp.getValue(field).asFloat();
                     flag_average = true;
                     update_songs(bpm_actual);
                 }
-                if (flag_average == false && field.getName().equals("max")){
+                if (!bpmMode.equals("desactivar_bpms") && flag_average == false
+                        && field.getName().equals("max")){
                     textViewBpm.setText("Bpms actuales " + dp.getValue(field) );
                     bpm_actual = dp.getValue(field).asFloat();
                     update_songs(bpm_actual);
@@ -411,78 +692,131 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setBpmMeasurement(){
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        Log.d("TIME", ""+ currentDateTime);
+        String[] parts = currentDateTime.toString().split("T");
+        String time = parts[1];
+
+        DbBpmMeasurement dbBpmMeasurement = new DbBpmMeasurement(this);
+        dbBpmMeasurement.setBpm(time, id_session, bpm_actual);
+        dbBpmMeasurement.close();
+    }
+
     public void filterSongs(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+        Intent intent = new Intent(this, RecommenderActivity.class);
+        intent.putExtra("id_user", id_user);
+        intent.putExtra("location", location);
+        intent.putExtra("bpmMode", bpmMode);
+        intent.putExtra("selectedGenres", selectedGenres);
+        intent.putExtra("selectedDecades", selectedDecades);
+        intent.putExtra("selectedContextRecommend", selectedContextRecommend);
+        intent.putExtra("selectedRating", selectedRating);
+        intent.putExtra("selectedPopularity", selectedPopularity);
 
-        String [] choiceItems = {"Pop", "Rock", "Hip Hop", "Reggaeton", "EDM", "Rap", "Trap"};
-        ArrayList<String> antSelectedItems = new ArrayList<>();
-        for (String s: selectedItems) {
-            antSelectedItems.add(s);
+        startActivity(intent);
+        finish();
+    }
+
+    public void likeDislike(View view){
+        Button button_play = findViewById(R.id.button_like);
+
+        if ( this.like == false) {
+            this.like = true;
+            button_play.setBackgroundResource(R.drawable.heart_color);
+            DbRatings dbRatings = new DbRatings(this);
+            DbSongs dbSongs = new DbSongs(this);
+            Song s = dbSongs.getSongBySpotifyUri(track_id_playing);
+            dbRatings.setRating(like, s.getId(), id_user);
+            dbSongs.close();
+            dbRatings.close();
         }
+        else {
+            this.like = false;
+            button_play.setBackgroundResource(R.drawable.heart);
+            DbRatings dbRatings = new DbRatings(this);
+            DbSongs dbSongs = new DbSongs(this);
+            Song s = dbSongs.getSongBySpotifyUri(track_id_playing);
+            dbRatings.setRating(like, s.getId(), id_user);
+            dbSongs.close();
+            dbRatings.close();
+        }
+    }
 
-        final boolean[] antcheckedItems = Arrays.copyOf(checkedItems, checkedItems.length);
+    public void setLikeButton(){
+        Button button_play = findViewById(R.id.button_like);
+        DbRatings dbRatings = new DbRatings(this);
+        DbSongs dbSongs = new DbSongs(this);
+        Song s = dbSongs.getSongBySpotifyUri(track_id_playing);
+        int rating = dbRatings.getRating(s.getId(), id_user);
+        if (rating == 1){
+            this.like = true;
+            button_play.setBackgroundResource(R.drawable.heart_color);
+        }
+        else {
+            this.like = false;
+            button_play.setBackgroundResource(R.drawable.heart);
+        }
+        dbSongs.close();
+        dbRatings.close();
+    }
 
-        builder.setTitle("Filter Songs")
-                // Specify the list array, the items to be selected by default (null for none),
-                // and the listener through which to receive callbacks when items are selected
-                .setMultiChoiceItems(choiceItems, checkedItems,
-                        new DialogInterface.OnMultiChoiceClickListener() {
+    public void detailTrainingScreen(View view){
+        readCalories();
+        readStepsCount();
+        Intent intent = new Intent(this, DetailTrainingActivity.class);
+        intent.putExtra("totalCalories", totalCalories);
+        intent.putExtra("dailyTotalSteps", dailyTotalSteps);
+        intent.putExtra("bpm_actual", bpm_actual);
+        startActivity(intent);
+    }
+
+    private void readStepsCount() {
+        Fitness.getHistoryClient(this, GoogleSignIn.getLastSignedInAccount(this))
+                .readDailyTotal(DataType.TYPE_STEP_COUNT_DELTA)
+                .addOnSuccessListener(
+                        new OnSuccessListener<DataSet>() {
+                            @RequiresApi(api = Build.VERSION_CODES.N)
                             @Override
-                            public void onClick(DialogInterface dialog, int which,
-                                                boolean isChecked) {
+                            public void onSuccess(DataSet dataSet) {
+                                long total =
+                                        dataSet.isEmpty()
+                                                ? 0
+                                                : dataSet.getDataPoints().get(0).getValue(Field.FIELD_STEPS).asInt();
 
-                                checkedItems[which] = isChecked;
-                                if (!selectedItems.contains(choiceItems[which])) {
-                                    // Else, if the item is already in the array, remove it
-                                    selectedItems.add(choiceItems[which]);
+                                if (dataSet.isEmpty()) {
+                                    dailyTotalSteps = 0;
                                 } else {
-                                    selectedItems.remove(choiceItems[which]);
-                                }
-                                for (int i = 0; i < antcheckedItems.length; i++) {
-                                    System.out.println("AntChecked " + i + ": " + antcheckedItems[i]);
+                                    dailyTotalSteps = (int) total;
                                 }
                             }
                         })
-                .setPositiveButton("Guardar Cambios", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK, so save the selectedItems results somewhere
-                        // or return them to the component that opened the dialog
-                        if (selectedItems.size() == 0){
-                            songs.clear();
-                            DbSongs dbSongs = new DbSongs(MainActivity.this);
-                            songs = dbSongs.getSongs();
-                            Collections.shuffle(songs);
-                        } else {
-                            DbSongs dbSongs = new DbSongs(MainActivity.this);
-                            songs.clear();
-                            for (String genre:selectedItems) {
-                                ArrayList<Song> tempSongs = dbSongs.getSongsByGenre(genre.toLowerCase());
-                                songs.addAll(tempSongs);
+                .addOnFailureListener(
+                        new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d( "There was a problem getting the step count.", ""+ e);
                             }
-                            Collections.shuffle(songs);
-
-                        }
-
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        selectedItems.clear();
-                        for (String s: antSelectedItems) {
-                            selectedItems.add(s);
-                        }
-
-                        for (int i = 0; i < antcheckedItems.length; i++) {
-                            checkedItems[i] = antcheckedItems[i];
-                        }
-                    }
-                });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+                        });
     }
 
+    private void readCalories() {
+        Fitness.getHistoryClient(this, GoogleSignIn.getLastSignedInAccount(this))
+                .readDailyTotal(DataType.TYPE_CALORIES_EXPENDED)
+                .addOnSuccessListener(new OnSuccessListener<DataSet>() {
+                    @Override
+                    public void onSuccess(DataSet dataSet) {
+                        totalCalories = dataSet.isEmpty() ? 0 : dataSet.getDataPoints().get(0).getValue(Field.FIELD_CALORIES).asFloat();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("There was a problem getting the calorie count.", e.toString());
+                    }
+                });
+    }
 
 }
 

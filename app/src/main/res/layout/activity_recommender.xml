@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecommenderActivity">
+
+    <TextView
+        android:id="@+id/textViewDecadesSelected"
+        android:layout_width="271dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_decade" />
+
+    <Switch
+        android:id="@+id/switch_popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="30dp"
+        android:onClick="switch_popularity"
+        android:text="Sort By Popularity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_rating" />
+
+    <Switch
+        android:id="@+id/switch_rating"
+        android:layout_width="157dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:onClick="switch_rating"
+        android:text="Sort By Rating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDecadesSelected" />
+
+    <Switch
+        android:id="@+id/switch_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="38dp"
+        android:onClick="switch_genre"
+        android:text="Filter By Genre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_context_recommend" />
+
+    <TextView
+        android:id="@+id/textViewGenresSelected"
+        android:layout_width="271dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_genre" />
+
+    <Switch
+        android:id="@+id/switch_decade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="31dp"
+        android:onClick="switch_decade"
+        android:text="Filter By Decade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenresSelected" />
+
+    <Button
+        android:id="@+id/button_save_changes"
+        android:layout_width="168dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="save_changes"
+        android:text="Guardar cambios"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+    <Switch
+        android:id="@+id/switch_context_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="91dp"
+        android:onClick="switch_context_recommendation"
+        android:text="Contextual Recommendation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="248dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="39dp"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_popularity" />
+</androidx.constraintlayout.widget.ConstraintLayout>
