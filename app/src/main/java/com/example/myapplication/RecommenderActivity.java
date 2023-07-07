@@ -110,6 +110,7 @@ public class RecommenderActivity extends AppCompatActivity {
     public void switch_genre(View view){
         Switch switch_genre = findViewById(R.id.switch_genre);
         TextView textViewGenre = findViewById(R.id.textViewGenresSelected);
+        Switch switch_context_recommend = findViewById(R.id.switch_context_recommend);
         if (switch_genre.isChecked()) {
             // El switch está activado
             // Realiza alguna acción aquí
@@ -120,6 +121,10 @@ public class RecommenderActivity extends AppCompatActivity {
             // Realiza alguna acción aquí
             textViewGenre.setText("Desactivado");
 
+        }
+        if (switch_context_recommend.isChecked()){
+            switch_context_recommend.setChecked(false);
+            selectedContextRecommend = false;
         }
 
     }
@@ -194,6 +199,7 @@ public class RecommenderActivity extends AppCompatActivity {
     public void switch_decade(View view){
         Switch switch_genre = findViewById(R.id.switch_decade);
         TextView textViewDecade = findViewById(R.id.textViewDecadesSelected);
+        Switch switch_context_recommend = findViewById(R.id.switch_context_recommend);
         if (switch_genre.isChecked()) {
             // El switch está activado
             // Realiza alguna acción aquí
@@ -203,6 +209,10 @@ public class RecommenderActivity extends AppCompatActivity {
             // El switch está desactivado
             // Realiza alguna acción aquí
             textViewDecade.setText("Desactivado");
+        }
+        if (switch_context_recommend.isChecked()){
+            switch_context_recommend.setChecked(false);
+            selectedContextRecommend = false;
         }
 
     }
