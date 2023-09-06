@@ -1,14 +1,15 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.myapplication.R;
 import com.example.myapplication.db.DbBpmMeasurement;
 import com.example.myapplication.typedefs.BpmMeasurement;
 import com.github.mikephil.charting.charts.LineChart;
@@ -26,7 +27,7 @@ import java.util.List;
 public class DetailTrainingActivity extends AppCompatActivity {
     private int dailyTotalSteps;
     private float totalCalories;
-    private float bpm_actual;
+
 
 
     @Override
@@ -37,18 +38,15 @@ public class DetailTrainingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         dailyTotalSteps = intent.getIntExtra("dailyTotalSteps", -1);
         totalCalories = intent.getFloatExtra("totalCalories", -1);
-        bpm_actual = intent.getFloatExtra("bpm_actual", -1);
-        Log.d("Detail", " steps: " + dailyTotalSteps + " , totalCalories: " +
-                totalCalories);
 
         LocalDateTime currentDateTime = LocalDateTime.now();
         String[] parts = currentDateTime.toString().split("T");
         String date = parts[0];
 
         TextView textViewCalories = findViewById(R.id.textViewCalories);
-        textViewCalories.setText("Total de calorías consumidas: \n" + totalCalories);
+        textViewCalories.setText("Total calories: \n" + totalCalories);
         TextView textViewSteps = findViewById(R.id.textViewSteps);
-        textViewSteps.setText("Total de pasos dados: \n" + dailyTotalSteps);
+        textViewSteps.setText("Total steps: \n" + dailyTotalSteps);
         TextView textViewDate = findViewById(R.id.textViewDate);
         textViewDate.setText("" + date);
         buildChart();
@@ -83,7 +81,7 @@ public class DetailTrainingActivity extends AppCompatActivity {
         }
         promedio = promedio / bpms.size();
         TextView textViewDate = findViewById(R.id.textViewHeartRate);
-        textViewDate.setText("Media en el dia: " + promedio + " bpms");
+        textViewDate.setText("Average heart rate: " + promedio + " bpms");
 
         LineChart mChart = findViewById(R.id.chart);
         mChart.setTouchEnabled(true);
@@ -91,26 +89,21 @@ public class DetailTrainingActivity extends AppCompatActivity {
 
         YAxis leftAxis = mChart.getAxisLeft();
 
-// Establecer el rango mínimo y máximo del eje Y
-        float minYValue = min - 40; // Valor mínimo deseado
-        float maxYValue = max + 40; // Valor máximo deseado
+        float minYValue = min - 40;
+        float maxYValue = max + 40;
         leftAxis.setAxisMinimum(minYValue);
         leftAxis.setAxisMaximum(maxYValue);
 
-        // Obtener el eje Y de la derecha del gráfico y deshabilitar la visualización de las etiquetas
         YAxis yAxisRight = mChart.getAxisRight();
         yAxisRight.setDrawLabels(false);
 
-// También puedes deshabilitar la visualización de las líneas de división del eje Y de la derecha si lo deseas
         yAxisRight.setDrawGridLines(false);
 
         XAxis xAxis = mChart.getXAxis();
         xAxis.setDrawLabels(false);
 
-// También puedes deshabilitar la visualización de las líneas de división del eje X si lo deseas
         xAxis.setDrawGridLines(false);
 
-        // Crear un conjunto de datos de la línea y configurar su apariencia
         LineDataSet dataSet = new LineDataSet(values, "BPM");
         dataSet.setColor(Color.RED);
         dataSet.setLineWidth(2f);
@@ -118,25 +111,17 @@ public class DetailTrainingActivity extends AppCompatActivity {
         dataSet.setCircleRadius(3f);
         dataSet.setDrawValues(false);
 
-
-
-        // Crear una lista de conjuntos de datos y agregar el conjunto de datos de la línea
         List<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(dataSet);
 
-        // Crear un objeto LineData con la lista de conjuntos de datos
         LineData lineData = new LineData(dataSets);
 
-        // Establecer los datos en el gráfico
         mChart.setData(lineData);
 
-        // Actualizar la visualización del gráfico
         mChart.invalidate();
     }
 
     public void button_back(View view){
-        // Llamar a finish() en el lugar adecuado para regresar a la actividad anterior
         finish();
-
     }
 }

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,11 +15,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 
+import com.example.myapplication.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RecommenderActivity extends AppCompatActivity {
     private String id_user;
+    private int id_session;
     private String location;
     private ArrayList<String> selectedGenres = new ArrayList();
 
@@ -42,6 +45,7 @@ public class RecommenderActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id_user = intent.getStringExtra("id_user");
+        id_session = intent.getIntExtra("id_session", -1);
         location = intent.getStringExtra("location");
         selectedRating = intent.getBooleanExtra("selectedRating", false);
         selectedPopularity = intent.getBooleanExtra("selectedPopularity", false);
@@ -56,15 +60,15 @@ public class RecommenderActivity extends AppCompatActivity {
     }
 
     private void setInitialSwitches(){
-        if (selectedRating == true){
+        if (selectedRating){
             Switch switch_rating = findViewById(R.id.switch_rating);
             switch_rating.setChecked(true);
         }
-        if (selectedPopularity == true){
+        if (selectedPopularity){
             Switch switch_popularity = findViewById(R.id.switch_popularity);
             switch_popularity.setChecked(true);
         }
-        if (selectedRating == true){
+        if (selectedContextRecommend){
             Switch switch_context = findViewById(R.id.switch_context_recommend);
             switch_context.setChecked(true);
         }
@@ -72,7 +76,7 @@ public class RecommenderActivity extends AppCompatActivity {
             Switch switch_popularity = findViewById(R.id.switch_decade);
             switch_popularity.setChecked(true);
             TextView textViewDecades = findViewById(R.id.textViewDecadesSelected);
-            textViewDecades.setText("Las décadas seleccionadas son: " + selectedDecades);
+            textViewDecades.setText("The selected decades are: " + selectedDecades);
             for (String decade:selectedDecades) {
                 int indice = -1;
                 for (int i=0; i < choiceItemsDecades.length; i++) {
@@ -89,7 +93,7 @@ public class RecommenderActivity extends AppCompatActivity {
             Switch switch_genre = findViewById(R.id.switch_genre);
             switch_genre.setChecked(true);
             TextView textViewGenres = findViewById(R.id.textViewGenresSelected);
-            textViewGenres.setText("Los géneros seleccionados son: " + selectedGenres);
+            textViewGenres.setText("The selected genres are: " + selectedGenres);
             for (String genre:selectedGenres) {
                 int indice = -1;
                 for (int i=0; i < choiceItemsGenres.length; i++) {
@@ -112,14 +116,10 @@ public class RecommenderActivity extends AppCompatActivity {
         TextView textViewGenre = findViewById(R.id.textViewGenresSelected);
         Switch switch_context_recommend = findViewById(R.id.switch_context_recommend);
         if (switch_genre.isChecked()) {
-            // El switch está activado
-            // Realiza alguna acción aquí
-            textViewGenre.setText("Activado");
+            textViewGenre.setText("Activated");
             dialogGenres();
         } else {
-            // El switch está desactivado
-            // Realiza alguna acción aquí
-            textViewGenre.setText("Desactivado");
+            textViewGenre.setText("Deactivated");
 
         }
         if (switch_context_recommend.isChecked()){
@@ -146,8 +146,6 @@ public class RecommenderActivity extends AppCompatActivity {
         final boolean[] antcheckedItems = Arrays.copyOf(checkedGenres, checkedGenres.length);
 
         builder.setTitle("Filter Songs")
-                // Specify the list array, the items to be selected by default (null for none),
-                // and the listener through which to receive callbacks when items are selected
                 .setMultiChoiceItems(choiceItemsGenres, checkedGenres,
                         new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
@@ -157,7 +155,6 @@ public class RecommenderActivity extends AppCompatActivity {
                                 checkedGenres[which] = isChecked;
                                 Log.d("Click", ""+choiceItemsGenres[which]+ ","+isChecked);
                                 if (!selectedGenres.contains(choiceItemsGenres[which])) {
-                                    // Else, if the item is already in the array, remove it
                                     selectedGenres.add(choiceItemsGenres[which]);
                                 }
                                 else {
@@ -169,15 +166,14 @@ public class RecommenderActivity extends AppCompatActivity {
 
                             }
                         })
-                .setPositiveButton("Guardar Cambios", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Save Changes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         TextView textViewGenre = findViewById(R.id.textViewGenresSelected);
-                        textViewGenre.setText("Los generos seleccionados son: " + selectedGenres);
-                        textViewGenre.setText("Los generos seleccionados son: " + selectedGenres);
+                        textViewGenre.setText("The selected genres are: " + selectedGenres);
                     }
                 })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         selectedGenres.clear();
@@ -189,7 +185,7 @@ public class RecommenderActivity extends AppCompatActivity {
                             checkedGenres[i] = antcheckedItems[i];
                         }
                         TextView textViewGenre = findViewById(R.id.textViewGenresSelected);
-                        textViewGenre.setText("Los generos seleccionados son: " + selectedGenres);
+                        textViewGenre.setText("The selected genres are: " + selectedGenres);
                     }
                 });
         AlertDialog dialog = builder.create();
@@ -201,14 +197,10 @@ public class RecommenderActivity extends AppCompatActivity {
         TextView textViewDecade = findViewById(R.id.textViewDecadesSelected);
         Switch switch_context_recommend = findViewById(R.id.switch_context_recommend);
         if (switch_genre.isChecked()) {
-            // El switch está activado
-            // Realiza alguna acción aquí
-            textViewDecade.setText("Activado");
+            textViewDecade.setText("Activated");
             dialogDecades();
         } else {
-            // El switch está desactivado
-            // Realiza alguna acción aquí
-            textViewDecade.setText("Desactivado");
+            textViewDecade.setText("Deactivated");
         }
         if (switch_context_recommend.isChecked()){
             switch_context_recommend.setChecked(false);
@@ -229,8 +221,6 @@ public class RecommenderActivity extends AppCompatActivity {
         final boolean[] antcheckedItems = Arrays.copyOf(checkedDecades, checkedDecades.length);
 
         builder.setTitle("Filter Songs")
-                // Specify the list array, the items to be selected by default (null for none),
-                // and the listener through which to receive callbacks when items are selected
                 .setMultiChoiceItems(choiceItemsDecades, checkedDecades,
                         new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
@@ -239,7 +229,6 @@ public class RecommenderActivity extends AppCompatActivity {
 
                                 checkedDecades[which] = isChecked;
                                 if (!selectedDecades.contains(choiceItemsDecades[which])) {
-                                    // Else, if the item is already in the array, remove it
                                     selectedDecades.add(choiceItemsDecades[which]);
                                 } else {
                                     selectedDecades.remove(choiceItemsDecades[which]);
@@ -247,14 +236,14 @@ public class RecommenderActivity extends AppCompatActivity {
 
                             }
                         })
-                .setPositiveButton("Guardar Cambios", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Save Changes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         TextView textViewDecade = findViewById(R.id.textViewDecadesSelected);
-                        textViewDecade.setText("Las décadas seleccionados son: " + selectedDecades);
+                        textViewDecade.setText("The selected decades are: " + selectedDecades);
                     }
                 })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         selectedDecades.clear();
@@ -266,7 +255,7 @@ public class RecommenderActivity extends AppCompatActivity {
                             checkedDecades[i] = antcheckedItems[i];
                         }
                         TextView textViewGenre = findViewById(R.id.textViewGenresSelected);
-                        textViewGenre.setText("Las décadas seleccionados son: " + selectedDecades);
+                        textViewGenre.setText("The selected decades are: " + selectedDecades);
                     }
                 });
         AlertDialog dialog = builder.create();
@@ -279,12 +268,8 @@ public class RecommenderActivity extends AppCompatActivity {
         Switch switch_context_recommend = findViewById(R.id.switch_context_recommend);
 
         if (switch_rating.isChecked()) {
-            // El switch está activado
-            // Realiza alguna acción aquí
             selectedRating = true;
         } else {
-            // El switch está desactivado
-            // Realiza alguna acción aquí
             selectedRating = false;
         }
 
@@ -306,8 +291,6 @@ public class RecommenderActivity extends AppCompatActivity {
         Switch switch_genre = findViewById(R.id.switch_genre);
         Switch switch_decade = findViewById(R.id.switch_decade);
         if (switch_context_recommend.isChecked()) {
-            // El switch está activado
-            // Realiza alguna acción aquí
             selectedContextRecommend = true;
             selectedGenres.clear();
             selectedDecades.clear();
@@ -316,8 +299,6 @@ public class RecommenderActivity extends AppCompatActivity {
                 checkedDecades[i] = false;
             }
         } else {
-            // El switch está desactivado
-            // Realiza alguna acción aquí
             selectedContextRecommend = false;
         }
 
@@ -332,13 +313,13 @@ public class RecommenderActivity extends AppCompatActivity {
         if (switch_genre.isChecked()){
             switch_genre.setChecked(false);
             TextView textViewGenre = findViewById(R.id.textViewGenresSelected);
-            textViewGenre.setText("Los generos seleccionados son: " + selectedGenres);
+            textViewGenre.setText("The selected genres are: " + selectedGenres);
 
         }
         if (switch_decade.isChecked()){
             switch_decade.setChecked(false);
             TextView textViewDecade = findViewById(R.id.textViewDecadesSelected);
-            textViewDecade.setText("Las décadas seleccionados son: " + selectedDecades);
+            textViewDecade.setText("The selected decades are: " + selectedDecades);
 
         }
     }
@@ -348,14 +329,8 @@ public class RecommenderActivity extends AppCompatActivity {
         Switch switch_rating = findViewById(R.id.switch_rating);
         Switch switch_popularity = findViewById(R.id.switch_popularity);
         if (switch_popularity.isChecked()) {
-            // El switch está activado
-            // Realiza alguna acción aquí
             selectedPopularity = true;
-
-
         } else {
-            // El switch está desactivado
-            // Realiza alguna acción aquí
             selectedPopularity = false;
         }
 
@@ -370,6 +345,7 @@ public class RecommenderActivity extends AppCompatActivity {
     }
 
     public void save_changes(View view){
+        checkSwitches();
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("source", "RecommenderActivity");
         intent.putExtra("selectedDecades", selectedDecades);
@@ -379,16 +355,14 @@ public class RecommenderActivity extends AppCompatActivity {
         intent.putExtra("selectedContextRecommend", selectedContextRecommend);
         intent.putExtra("location", location);
         intent.putExtra("id_user", id_user);
+        intent.putExtra("id_session", id_session);
         intent.putExtra("bpmMode", bpmMode);
         startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
-        // Realiza las acciones que deseas al presionar el botón "Atrás"
-        // Puede ser cerrar la actividad actual, mostrar un diálogo de confirmación, etc.
-
-        // Por ejemplo, cerrar la actividad actual y regresar a la actividad anterior
+        checkSwitches();
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("source", "RecommenderActivity");
         intent.putExtra("selectedDecades", selectedDecades);
@@ -398,16 +372,21 @@ public class RecommenderActivity extends AppCompatActivity {
         intent.putExtra("selectedContextRecommend", selectedContextRecommend);
         intent.putExtra("location", location);
         intent.putExtra("id_user", id_user);
+        intent.putExtra("id_session", id_session);
         intent.putExtra("bpmMode", bpmMode);
         startActivity(intent);
+    }
+
+    public void button_back(View view){
+        onBackPressed();
     }
 
     private void buildSpinner(){
         Spinner spinner = findViewById(R.id.spinner2);
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Adaptar Bpms");
-        arrayList.add("Invertir Bpms");
-        arrayList.add("Desactivar Seguimiento Bpms");
+        arrayList.add("Adapt Bpms");
+        arrayList.add("Reverse Bpms");
+        arrayList.add("Disable Tracking Bpms");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
                 arrayList);
@@ -423,6 +402,29 @@ public class RecommenderActivity extends AppCompatActivity {
                 bpmMode = "Adaptar Bpms";
             }
         });
+    }
+
+    public void checkSwitches(){
+        Switch switch_context_recommend = findViewById(R.id.switch_context_recommend);
+        Switch switch_rating = findViewById(R.id.switch_rating);
+        Switch switch_popularity = findViewById(R.id.switch_popularity);
+        Switch switch_genre = findViewById(R.id.switch_genre);
+        Switch switch_decade = findViewById(R.id.switch_decade);
+        if (!switch_genre.isChecked()) {
+            selectedGenres.clear();
+        }
+        if (!switch_decade.isChecked()) {
+            selectedDecades.clear();
+        }
+        if (!switch_rating.isChecked()){
+            selectedRating = false;
+        }
+        if (!switch_popularity.isChecked()){
+            selectedPopularity = false;
+        }
+        if (!switch_context_recommend.isChecked()){
+            selectedContextRecommend = false;
+        }
     }
 
 }

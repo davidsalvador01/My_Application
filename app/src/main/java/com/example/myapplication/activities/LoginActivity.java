@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.R;
 import com.example.myapplication.db.DbHelper;
 import com.example.myapplication.db.DbUsers;
 import com.example.myapplication.typedefs.User;
@@ -64,28 +65,15 @@ public class LoginActivity extends AppCompatActivity {
                 inputStreamArtists, inputStreamSongArtists,
                 inputStreamGenres, inputStreamSongGenres);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        if (db != null){
-            Log.d("DB", "Base de datos creada con éxito");
-        } else {
-            Log.d("DB", "Ha habido un error al crear la base de datos");
-        }
-        if (db != null && db.isOpen()) {
-            Log.d("DB", "Base de datos abierta");
-        }
 
         db.releaseReference();
         db.close();
         dbHelper.close();
-        Log.d("DB", "Cierro");
-
-        if (db != null && !db.isOpen()) {
-            Log.d("DB", "Base de datos cerrada");
-        }
     }
 
 
     public void connect_google_fit(View view) {
-        if(connected_to_fit == false){
+        if(!connected_to_fit){
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
                     .requestProfile()
@@ -96,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
             connect.launch(signInIntent);
         } else {
-            Toast.makeText(getApplicationContext(), " Ya estás conectado a Google Fit " ,
+            Toast.makeText(getApplicationContext(), " You are already connected to Google Fit " ,
                     Toast.LENGTH_SHORT).show();
         }
 
@@ -109,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                     handleSignInResult(task);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Error, No se ha podido conectar " +
+                    Toast.makeText(getApplicationContext(), "Error, Failed to connect " +
                             "con la cuenta de Google", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -117,29 +105,24 @@ public class LoginActivity extends AppCompatActivity {
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
-            checkGoogleFitPermission();
+            checkGoogleFitPermissions();
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             this.account = account;
             TextView textViewEmail = findViewById(R.id.textViewEmail);
-            textViewEmail.setText("Bienvenido, " + account.getEmail());
+            textViewEmail.setText("Welcome, " + account.getEmail());
 
             String imageUrl = loadPhoto();
 
-            checkAndAddUser(account.getEmail(), account.getDisplayName(), imageUrl);
+            checkAndAddUser(account.getDisplayName(), account.getEmail(), imageUrl);
 
-            Toast.makeText(getApplicationContext(), " Conectado correctamente a Google Fit " ,
+            Toast.makeText(getApplicationContext(), " Successfully connected to Google Fit " ,
                     Toast.LENGTH_SHORT).show();
-            // Signed in successfully, show authenticated UI.
-            //updateUI(account);
+
             chooseLocation();
-            Log.d("LOCATION", ""+ location);
             connected_to_fit = true;
 
         } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("Google", "signInResult:failed code=" + e.getStatusCode());
-            //updateUI(null);
         }
     }
 
@@ -154,13 +137,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private String generateIdUser(String email){
         try {
-            // Crear una instancia del algoritmo de hash (en este caso, SHA-256)
             MessageDigest digest = MessageDigest.getInstance("MD5");
 
-            // Calcular el hash del string
             byte[] hashBytes = digest.digest(email.getBytes());
 
-            // Convertir el hash a representación hexadecimal
             StringBuilder hexString = new StringBuilder();
             for (byte hashByte : hashBytes) {
                 String hex = Integer.toHexString(0xff & hashByte);
@@ -170,8 +150,8 @@ public class LoginActivity extends AppCompatActivity {
                 hexString.append(hex);
             }
 
-            String hash = hexString.toString();
-            return  hash;
+            return hexString.toString();
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -195,8 +175,7 @@ public class LoginActivity extends AppCompatActivity {
         dbUsers.close();
     }
 
-    public void checkGoogleFitPermission() {
-        // Scopes read and write we either read or write datatype from sensor
+    public void checkGoogleFitPermissions() {
 
         fitnessOptions = FitnessOptions.builder()
                 .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
@@ -228,8 +207,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void connect_spotify(View view) {
-        if (connected_to_fit == false) {
-            Toast.makeText(getApplicationContext(), "Debes conectarte antes a Google Fit", Toast.LENGTH_SHORT).show();
+        if (!connected_to_fit) {
+            Toast.makeText(getApplicationContext(), "You must first connect to Google Fit", Toast.LENGTH_SHORT).show();
         }
         else {
             if(location == null){
@@ -251,12 +230,10 @@ public class LoginActivity extends AppCompatActivity {
                 .setSingleChoiceItems(choiceItems, selectedOption, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Almacena la opción seleccionada
                         selectedOption = which;
-                        Log.d("click", " "+ selectedOption);
                     }
                 })
-                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Accept", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         location = choiceItems[selectedOption];
@@ -266,6 +243,10 @@ public class LoginActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
+    }
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
     }
 
 

@@ -2,15 +2,9 @@ package com.example.myapplication.db;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.typedefs.Song;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 public class DbSessions extends DbHelper {
     private final Context context;
@@ -47,13 +41,15 @@ public class DbSessions extends DbHelper {
                 "' WHERE id =" + id ));
     }
 
-    public void setSongSession(int id_song, int id_session ) {
+    public void setSongSession(int id_song, int id_session, String time, String mode_bpm ) {
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("id_song", id_song);
         values.put("id_session", id_session);
+        values.put("time", time);
+        values.put("mode_bpm", mode_bpm);
 
         db.insert(TABLE_SONGS_SESSIONS, null, values);
 

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.myapplication.JsonHelper;
+import com.example.myapplication.helpers.JsonHelper;
 import com.example.myapplication.typedefs.Artist;
 import com.example.myapplication.typedefs.Genre;
 import com.example.myapplication.typedefs.Song;
@@ -105,7 +105,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_SONGS_SESSIONS + "(" +
                 "id_song INTEGER REFERENCES " + TABLE_SONGS + ","+
-                "id_session INTEGER REFERENCES " + TABLE_SESSIONS + ")");
+                "id_session INTEGER REFERENCES " + TABLE_SESSIONS + "," +
+                "time TEXT," +
+                "mode_bpm TEXT)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_BPM_MEASUREMENT + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT,"+

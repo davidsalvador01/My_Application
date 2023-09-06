@@ -12,7 +12,10 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
+        manifestPlaceholders = [
+                redirectHostName: "myapp.com",
+                redirectSchemeName: "myapp"
+        ]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -31,13 +34,13 @@ android {
 dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.0'
 
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.picasso:picasso:2.8'
 
     implementation 'com.google.android.gms:play-services-fitness:20.0.0'
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
     
-    implementation files('libs/spotify-app-remote-release-0.7.2.aar')
-    implementation files('libs/spotify-auth-release-1.2.3.aar')
+    implementation files('libs/spotify-app-remote-release-0.8.0.aar')
+    implementation files('libs/spotify-auth-release-2.1.0.aar')
 
     implementation 'androidx.activity:activity:1.2.3'
     implementation "com.google.code.gson:gson:2.6.1"

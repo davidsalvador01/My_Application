@@ -3,7 +3,6 @@ package com.example.myapplication.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -41,13 +40,14 @@ public class DbSongs extends DbHelper{
                     songs.add(s);
                 } while(cursorSongs.moveToNext());
             }
+            cursorSongs.close();
         } finally {
             if (db != null && db.isOpen()) {
                 db.close();
             }
             dbHelper.close();
         }
-        return  songs;
+        return songs;
     }
 
     public ArrayList<Song> getSongsByBpm(float bpm){
@@ -78,7 +78,7 @@ public class DbSongs extends DbHelper{
         db.releaseReference();
         db.close();
         dbHelper.close();
-        return  songs;
+        return songs;
     }
 
     public ArrayList<Song> getSongsByGenre(String genre){
@@ -151,30 +151,6 @@ public class DbSongs extends DbHelper{
         return songs;
     }
 
-    public Song getSongByTitle(String title){
-        DbHelper dbHelper = new DbHelper(context);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        Cursor cursorSongs;
-        cursorSongs = db.rawQuery("SELECT * FROM " + TABLE_SONGS +
-                " AS s WHERE s.title = " + title + " ORDER BY s.popularity DESC LIMIT 1", null);
-        if (cursorSongs.moveToNext()) {
-            Song s = new Song();
-            s.setId(cursorSongs.getInt(0));
-            s.setTitle(cursorSongs.getString(1));
-            s.setUri_spotify(cursorSongs.getString(2));
-            s.setTempo(cursorSongs.getFloat(3));
-            s.setDuration_ms(cursorSongs.getInt(4));
-            s.setPopularity(cursorSongs.getInt(5));
-            s.setRelease_year(cursorSongs.getInt(6));
-            return s;
-        }
-        cursorSongs.close();
-        db.releaseReference();
-        db.close();
-        dbHelper.close();
-        return null;
-    }
 
     public ArrayList<Song> getSongsByArtist(String artist){
         DbHelper dbHelper = new DbHelper(context);
@@ -256,6 +232,7 @@ public class DbSongs extends DbHelper{
                 s.setRelease_year(cursorSongs.getInt(6));
                 return s;
             }
+            cursorSongs.close();
         } finally {
             if (db != null && db.isOpen()) {
                 db.close();
@@ -332,41 +309,6 @@ public class DbSongs extends DbHelper{
         return songs;
     }
 
-    public ArrayList<Song> getSongsByDecadeAndBpm(int decade, float bpm){
-        float bpm_min = bpm - 5;
-        float bpm_max = bpm + 5;
-        int decade_end = decade+10;
-
-        DbHelper dbHelper = new DbHelper(context);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        ArrayList<Song> songs = new ArrayList<>();
-        Cursor cursorSongs;
-        cursorSongs = db.rawQuery("SELECT s.id, s.title, s.uri_spotify, " +
-                "s.tempo, s.duration_ms, s.popularity, s.release_year " +
-                "FROM " + TABLE_SONGS + " AS s " +
-                "WHERE s.release_year>="
-                + decade + " AND s.release_year<" +decade_end +
-                " AND s.tempo>" + bpm_min + " AND s.tempo<" + bpm_max, null);
-        if(cursorSongs.moveToFirst()){
-            do {
-                Song s = new Song();
-                s.setId(cursorSongs.getInt(0));
-                s.setTitle(cursorSongs.getString(1));
-                s.setUri_spotify(cursorSongs.getString(2));
-                s.setTempo(cursorSongs.getFloat(3));
-                s.setDuration_ms(cursorSongs.getInt(4));
-                s.setPopularity(cursorSongs.getInt(5));
-                s.setRelease_year(cursorSongs.getInt(6));
-                songs.add(s);
-            } while(cursorSongs.moveToNext());
-        }
-        cursorSongs.close();
-        db.releaseReference();
-        db.close();
-        dbHelper.close();
-        return songs;
-    }
 
     public ArrayList<Song>  getSongsByCondition(String condition){
 
@@ -667,7 +609,7 @@ public class DbSongs extends DbHelper{
         return  songs;
     }
 
-    public ArrayList<String> mostStreamedArtists(String location){
+    public ArrayList<String> mostStreamedArtists(String location, String id_user){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -680,6 +622,7 @@ public class DbSongs extends DbHelper{
                 "JOIN t_songs_sessions AS s_s ON s.id = s_s.id_song " +
                 "JOIN t_sessions AS se ON se.id = s_s.id_session " +
                 "WHERE se.location= '" + location + "' " +
+                "AND id_user ='" + id_user + "'" +
                 "GROUP by a.name " +
                 "ORDER BY num_artist_appearences DESC LIMIT 10", null);
         if(cursorSongs.moveToFirst()){
@@ -695,7 +638,7 @@ public class DbSongs extends DbHelper{
         return nameArtists;
     }
 
-    public ArrayList<String> mostStreamedGenres(String location){
+    public ArrayList<String> mostStreamedGenres(String location, String id_user){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -708,6 +651,7 @@ public class DbSongs extends DbHelper{
                 "JOIN t_songs_sessions AS s_s ON s.id = s_s.id_song " +
                 "JOIN t_sessions AS se ON se.id = s_s.id_session " +
                 "WHERE se.location= '" + location + "' " +
+                "AND id_user ='" + id_user + "'" +
                 "GROUP BY g.name " +
                 "ORDER BY num_songs DESC LIMIT 5", null);
         if(cursorSongs.moveToFirst()){
@@ -723,7 +667,7 @@ public class DbSongs extends DbHelper{
         return nameGenres;
     }
 
-    public ArrayList<Integer> mostStreamedYears(String location){
+    public ArrayList<Integer> mostStreamedYears(String location, String id_user){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -734,6 +678,7 @@ public class DbSongs extends DbHelper{
                 "JOIN t_songs_sessions AS s_s ON s.id = s_s.id_song " +
                 "JOIN t_sessions AS se ON se.id = s_s.id_session " +
                 "WHERE se.location= '" + location + "' " +
+                "AND id_user ='" + id_user + "'" +
                 "GROUP by s.release_year " +
                 "ORDER BY years_appearences DESC LIMIT 3", null);
         if(cursorSongs.moveToFirst()){

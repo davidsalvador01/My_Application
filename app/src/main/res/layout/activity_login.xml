@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <Button
         android:id="@+id/button2"
@@ -13,7 +13,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="80dp"
         android:onClick="connect_spotify"
-        android:text="Conectar con Spotify"
+        android:text="Continue with Spotify"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="75dp"
         android:onClick="connect_google_fit"
-        android:text="Conectar con Google Fit"
+        android:text="Connect to Google Fit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
 
